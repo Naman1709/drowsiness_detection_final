@@ -26,10 +26,13 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 24px;
+  font-size: 30px;
 }
 
 header nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 10px;
 }
 
@@ -37,7 +40,7 @@ header nav a {
   color: white;
   text-decoration: none;
   margin: 0 15px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   transition: color 0.3s ease;
 }
@@ -65,7 +68,8 @@ button {
   padding: 20px;
   max-width: 600px; /* Limit width for better appearance */
   margin: auto; /* Center horizontally */
-  margin-top: 80px; /* Add margin from the top for the header */
+  margin-top: 500px; /* Add margin from the top for the header */
+  height: auto;
 }
 
 .webcam-feed {
@@ -84,6 +88,12 @@ video {
 h2 {
   color: #333;
   text-align: center; /* Center the text */
+  font-size: 30px;
+}
+
+p {
+  text-align: center;
+  font-size: 18px;
 }
 
 .indicator {
