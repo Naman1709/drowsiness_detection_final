@@ -80,7 +80,8 @@ def upload():
             if yawn_counter >= 3:  # Adjust threshold for alarm
                 return jsonify({"alert": "Yawning detected!"})
 
-    return jsonify({"alert": "All good!"})
+    # return jsonify({"alert": "All good!"})
+    return ""
 
 if __name__ == '__main__':
     app.run(debug=True)
