@@ -1,0 +1,109 @@
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+}
+
+/* Header styles */
+header {
+  background-color: #282c34;
+  color: white;
+  padding: 1em;
+  text-align: center;
+  width: 100%; /* Full width */
+  position: absolute; /* Stay at the top */
+  top: 0;
+  left: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+header nav {
+  margin-top: 10px;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color: #61dafb; /* Add a hover effect with a light blue color */
+}
+
+/* Additional layout styles */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.detection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  max-width: 600px; /* Limit width for better appearance */
+  margin: auto; /* Center horizontally */
+  margin-top: 80px; /* Add margin from the top for the header */
+}
+
+.webcam-feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+video {
+  border-radius: 10px; /* Round the corners of the video */
+  width: 100%; /* Full width of the container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+h2 {
+  color: #333;
+  text-align: center; /* Center the text */
+}
+
+.indicator {
+  margin-top: 20px;
+}
+
+.alerts {
+  margin-top: 20px;
+  color: red; /* Alert messages in red */
+}
+
+li {
+  background: #f9f9f9;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
