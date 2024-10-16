@@ -78,12 +78,14 @@
 // export default WebcamFeed;
 // src/components/WebcamFeed.jsx
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 function WebcamFeed() {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const intervalRef = useRef(null);
+  const alertSoundRef = useRef(null); // To store the Audio object globally
+  const [isPlaying, setIsPlaying] = useState(false); // To track audio playback status
 
   useEffect(() => {
     const startWebcam = async () => {
@@ -133,11 +135,26 @@ function WebcamFeed() {
         },
         body: JSON.stringify({ image: imageData }),
       });
-
+  
       if (response.ok) {
         const result = await response.json();
-        if (result.alert) {
-          alert(result.alert); // Show alert based on backend response
+
+        // Initialize the alert sound if it's not already initialized
+        if (!alertSoundRef.current) {
+          alertSoundRef.current = new Audio('/public/wake.wav'); // Path to your sound file
+        }
+
+        if (result.alert && !isPlaying) {
+          // Play the sound if not already playing
+          alertSoundRef.current.play();
+          setIsPlaying(true);
+          console.log("Sound Playing");
+
+          // Listen for when the sound ends and reset the flag
+          alertSoundRef.current.onended = () => {
+            setIsPlaying(false);
+            console.log("Sound Ended");
+          };
         }
       } else {
         console.error("Error sending frame:", response.statusText);
