@@ -11,6 +11,7 @@ body, html {
   flex-direction: column;
   height: 100vh;
   padding: 20px;
+  overflow: hidden;
   background-color: #f7f1e3; /* Softer background color */
 }
 
@@ -56,7 +57,7 @@ thead th {
   padding: 16px; /* Add more padding for spacious look */
   text-align: left;
   text-transform: uppercase; /* Capitalize headings */
-  letter-spacing: 1px;
+  letter-spacing: 4px;
   border-bottom: 3px solid #e68900; /* Border below headers */
 }
 

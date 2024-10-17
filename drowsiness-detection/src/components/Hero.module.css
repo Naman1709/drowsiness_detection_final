@@ -1,0 +1,109 @@
+.hero {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 100px 0;
+  text-align: center;
+  background-color: rgba(31, 31, 31, 0.95);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4vh;
+  align-items: center;
+  max-width: 1200px;
+  margin: -2rem auto;
+}
+
+h1 {
+  display: flex;
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  width: 70%;
+  font-size: 50px;
+  font-weight: bold;
+  color: #ffffff; 
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  font-size: 18px;
+  color: #ffffff; 
+}
+
+.buttons {
+  margin-bottom: 2rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 15px 30px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #ff4081; 
+  text-decoration: none;
+  color: #000000; 
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 15px 30px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #ff4081; 
+  text-decoration: none;
+  color: black; 
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 40px;
+    width: 90%;
+  }
+
+  p {
+    width: 90%;
+    font-size: 16px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero {
+    padding: 60px 0;
+  }
+
+  h1 {
+    font-size: 30px;
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  p {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+}

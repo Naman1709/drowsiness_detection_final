@@ -1,0 +1,82 @@
+.navbar {
+  font-family: Arial, sans-serif;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #557;
+  padding: 15px;
+  box-shadow: 0px 2.5px 2px -2px gray;
+}
+
+.imageCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+}
+
+.logo {
+  font-weight: bold;
+  color: #00bcd4;
+}
+
+.navList {
+  list-style-type: none;
+  margin-left: 1%;
+  padding: 0;
+  display: flex;
+}
+
+.navList li {
+  margin: 0 20px;
+  text-decoration: none;
+  color: #000; 
+  font-size: 18px;
+}
+
+.navList li a {
+  color: #000;
+}
+
+.navbar .buttons {
+  list-style-type: none;
+  display: flex;
+}
+
+.navbar .buttons li {
+  text-decoration: none;
+  margin-left: 15px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.signup {
+  background-color: #ff4081; 
+  color: #000000;
+}
+
+.login {
+  color: black;
+  background-color: #ff4081; 
+}
+
+@media (max-width: 850px) {
+  .navList {
+    display: none;
+  }
+
+  .navbar .buttons li {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .navbar .buttons li {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
