@@ -4,10 +4,9 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100vw; /* Full viewport width */
   height: 100vh; /* Full viewport height */
+  overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 /* Header styles */
@@ -16,8 +15,8 @@ header {
   color: white;
   padding: 1em;
   text-align: center;
-  width: 100%; /* Full width */
-  position: absolute; /* Stay at the top */
+  width: 100vw; /* Full width */
+  position: sticky; /* Stay at the top */
   top: 0;
   left: 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
@@ -66,9 +65,7 @@ button {
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  max-width: 600px; /* Limit width for better appearance */
-  margin: auto; /* Center horizontally */
-  margin-top: 500px; /* Add margin from the top for the header */
+  width: 100%; /* Full width of the container */
   height: auto;
 }
 

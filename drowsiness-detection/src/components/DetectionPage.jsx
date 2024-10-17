@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import WebcamFeed from './WebcamFeed';
 import DrowsinessIndicator from './DrowsinessIndicator';
 import Alerts from './Alerts';
+import './DetectionPage.css';
 
 function DetectionPage() {
   const [alert, setAlert] = useState('');
