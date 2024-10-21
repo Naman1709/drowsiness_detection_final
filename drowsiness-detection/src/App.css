@@ -10,9 +10,9 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f0f0f0;
-  width: 100vw; /* Full viewport width */
-  height: 100vh; /* Full viewport height */
-  overflow-x: hidden; /* Prevent horizontal overflow */
+  width: 100vw; 
+  height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Header styles */
@@ -114,10 +114,4 @@ li {
   margin: 5px 0;
   padding: 10px;
   border-radius: 5px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
