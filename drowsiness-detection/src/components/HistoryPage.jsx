@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './HistoryPage.css';
+import '../Styles/HistoryPage/HistoryPage.css';
 
 const HistoryPage = () => {
   // Dummy data for now

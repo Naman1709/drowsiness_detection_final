@@ -24,7 +24,7 @@ function WebcamFeed() {
 
     intervalRef.current = setInterval(() => {
       captureFrame();
-    }, 100); // Capture every 0.1 seconds
+    }, 300); // Capture every 0.3 seconds
 
     return () => {
       clearInterval(intervalRef.current);

@@ -1,9 +1,8 @@
-// src/components/DetectionPage.jsx
 import React, { useState } from 'react';
 import WebcamFeed from './WebcamFeed';
 import DrowsinessIndicator from './DrowsinessIndicator';
 import Alerts from './Alerts';
-import './DetectionPage.css';
+import '../Styles/DetectionPage/DetectionPage.css';
 
 function DetectionPage() {
   const [alert, setAlert] = useState('');

@@ -1,0 +1,167 @@
+/* General Layout */
+.mainCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #f8f9fc;
+  color: #333;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.hero .buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.hero .btn-primary {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero .btn-secondary {
+  color: #4CAF50;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  border: 1px solid #4CAF50;
+  font-weight: bold;
+}
+
+/* Features Section */
+.features {
+  background-color: #eef5ff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.featureList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.feature {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 250px;
+}
+
+/* How It Works Section */
+.howItWorks {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.howItWorks h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.howItWorks p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.step {
+  background-color: #f8f9fc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 200px;
+}
+
+/* Benefits Section */
+.benefits {
+  background-color: #f0f8ff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.benefits h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.benefitList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.benefit {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 250px;
+}
+
+/* Shortcuts Section */
+.shortcuts {
+  background-color: #eef5ff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.shortcuts h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.keyboard img {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+.shortcuts p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 20px;
+}

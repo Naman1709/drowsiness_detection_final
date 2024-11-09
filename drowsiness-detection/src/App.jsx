@@ -1,14 +1,11 @@
-// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
-import Navbar from './components/Navbar';
-import LandingPage from './components/LandingPage';
-import HomePage from './components/HomePage';
-import Hero from './components/Hero';
-import DetectionPage from './components/DetectionPage';
-import HistoryPage from './components/HistoryPage';
-import UserProfile from './components/UserProfile';
+import Navbar from './Components/Navbar';
+import Footer from './Components/Footer'; // Import Footer
+import Hero from './Components/HomePage/Hero';
+import DetectionPage from './Components/DetectionPage';
+import HistoryPage from './Components/HistoryPage';
+import UserProfile from './Components/UserProfile';
 import './App.css';
 
 function App() {
@@ -21,6 +18,7 @@ function App() {
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/profile" element={<UserProfile />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

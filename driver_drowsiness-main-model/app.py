@@ -79,7 +79,7 @@ def upload():
 
             # If eyes are closed for more than the threshold duration
             # if time.time() - start_time >= CLOSED_EYE_DURATION_THRESH:
-            if blink_counter >= 8:
+            if blink_counter >= 3:
                 alarm_on = True
                 return jsonify({"alert": "Eyes Closed!"})
         else:
