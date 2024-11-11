@@ -4,9 +4,13 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #557;
+  background-color: #012641;
   padding: 15px;
   box-shadow: 0px 2.5px 2px -2px gray;
+  display: flex;
+  width: 100vw; /* Full width */
+  height: 65px;
+  position: sticky;
 }
 
 .imageCont {
@@ -14,11 +18,13 @@
   justify-content: center;
   align-items: center;
   width: 15%;
+  float: left;
 }
 
 .logo {
   font-weight: bold;
   color: #00bcd4;
+  float: left;
 }
 
 .navList {
@@ -26,22 +32,30 @@
   margin-left: 1%;
   padding: 0;
   display: flex;
+  float: right;
 }
 
 .navList li {
   margin: 0 20px;
   text-decoration: none;
-  color: #000; 
-  font-size: 18px;
+  color: #000;
+  font-size: 15px;
+  float: right;
+  transition: 0.2s;
 }
 
 .navList li a {
-  color: #000;
+  color: white;
+}
+
+.navList li:hover {
+  transform: scale(1.03);
 }
 
 .navbar .buttons {
   list-style-type: none;
   display: flex;
+  float: right;
 }
 
 .navbar .buttons li {
@@ -51,16 +65,21 @@
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.navbar .buttons li:hover {
+  transform: scale(1.1);
 }
 
 .signup {
-  background-color: #ff4081; 
-  color: #000000;
+  background-color: #60b3d1;
+  color: white;
 }
 
 .login {
-  color: black;
-  background-color: #ff4081; 
+  color: white;
+  background-color: #60b3d1;
 }
 
 @media (max-width: 850px) {

@@ -7,15 +7,25 @@ const Hero = () => (
     {/* Hero Section */}
     <section className={styles.hero}>
       <div className={styles.container}>
-        <h1>Enhance Your Driving Safety with Drowsiness Detection Technology</h1>
+        <h1>
+          Enhance Your Driving Safety with Drowsiness Detection Technology
+        </h1>
         <p>
-          Our advanced AI system monitors driver awareness to reduce risks and promote safer driving habits. 
-          Protect yourself and others with real-time drowsiness detection.
+          Our advanced AI system monitors driver awareness to reduce risks and
+          promote safer driving habits. Protect yourself and others with
+          real-time drowsiness detection.
         </p>
         <div className={styles.buttons}>
-          <a href="/detect" className={styles["btn-primary"]}>Get Started for Free</a>
-          <a href="#" className={styles["btn-secondary"]}>Join the Community</a>
+          <a href="/detect" className={styles["btn-primary"]}>
+            Get Started for Free
+          </a>
+          <a href="#" className={styles["btn-secondary"]}>
+            Join the Community
+          </a>
         </div>
+      </div>
+      <div className={styles.mainimg}>
+        <img src="src/assets/main_img.jpg" alt="main image" />
       </div>
     </section>
 
@@ -25,15 +35,22 @@ const Hero = () => (
       <div className={styles.featureList}>
         <div className={styles.feature}>
           <h3>Real-time Monitoring</h3>
-          <p>Continuously tracks driver alertness to prevent accidents caused by drowsiness.</p>
+          <p>
+            Continuously tracks driver alertness to prevent accidents caused by
+            drowsiness.
+          </p>
         </div>
         <div className={styles.feature}>
           <h3>Instant Alerts</h3>
-          <p>Immediate notifications to warn drivers when drowsiness is detected.</p>
+          <p>
+            Immediate notifications to warn drivers when drowsiness is detected.
+          </p>
         </div>
         <div className={styles.feature}>
           <h3>Data Insights</h3>
-          <p>Access insights on driving habits to improve safety on future trips.</p>
+          <p>
+            Access insights on driving habits to improve safety on future trips.
+          </p>
         </div>
       </div>
     </section>
@@ -41,7 +58,10 @@ const Hero = () => (
     {/* How It Works Section */}
     <section className={styles.howItWorks}>
       <h2>How It Works</h2>
-      <p>Our system uses state-of-the-art AI to analyze eye and facial movements, detecting signs of drowsiness in real-time.</p>
+      <p>
+        Our system uses state-of-the-art AI to analyze eye and facial movements,
+        detecting signs of drowsiness in real-time.
+      </p>
       <div className={styles.steps}>
         <div className={styles.step}>
           <h3>Step 1</h3>
@@ -53,7 +73,10 @@ const Hero = () => (
         </div>
         <div className={styles.step}>
           <h3>Step 3</h3>
-          <p>Alerts trigger if drowsiness is detected, helping the driver stay alert.</p>
+          <p>
+            Alerts trigger if drowsiness is detected, helping the driver stay
+            alert.
+          </p>
         </div>
       </div>
     </section>
@@ -64,7 +87,10 @@ const Hero = () => (
       <div className={styles.benefitList}>
         <div className={styles.benefit}>
           <h3>Professional Drivers</h3>
-          <p>Ideal for truck drivers and commercial fleets aiming to reduce accidents.</p>
+          <p>
+            Ideal for truck drivers and commercial fleets aiming to reduce
+            accidents.
+          </p>
         </div>
         <div className={styles.benefit}>
           <h3>Families</h3>
@@ -76,7 +102,6 @@ const Hero = () => (
         </div>
       </div>
     </section>
-
   </div>
 );
 

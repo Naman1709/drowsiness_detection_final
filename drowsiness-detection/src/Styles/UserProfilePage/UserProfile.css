@@ -1,0 +1,54 @@
+div h2 {
+  color: #012641;
+  cursor: pointer;
+  margin-top: 30px;
+}
+div p {
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: -100px;
+  margin-top: -80px;
+}
+img {
+  width: 400px;
+  cursor: pointer;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+.labels {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.container label {
+  font-size: 20px;
+  color: #012641;
+}
+
+.container input {
+  border: 1px solid #012641;
+  border-radius: 3px;
+  width: 200px;
+  height: 20px;
+}
+
+button {
+  background-color: #00bcd4;
+  border: #00bcd4;
+  border-radius: 10px;
+  color: white;
+  transition: 0.3s;
+}
+button:hover {
+  transform: scale(1.05);
+}

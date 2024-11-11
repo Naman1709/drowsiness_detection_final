@@ -12,17 +12,43 @@
   color: #333;
   padding: 80px 20px;
   text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: -30px;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 650px;
   padding: 0 20px;
+  float: left;
+}
+.mainimg {
+  float: right;
+}
+.mainimg img {
+  width: 550px;
+  border-radius: 20px;
+  transition: 0.3s;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mainimg img:hover {
+  transform: scale(1.05);
 }
 
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
+  color: #012641;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero h1:hover {
+  transform: scale(1.02);
+  text-decoration: underline;
 }
 
 .hero p {
@@ -38,33 +64,49 @@
 }
 
 .hero .btn-primary {
-  background-color: #4CAF50;
+  background-color: #60b3d1;
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
+  transition: 0.3s;
+}
+.hero .btn-primary:hover {
+  transform: scale(1.05);
 }
 
 .hero .btn-secondary {
-  color: #4CAF50;
+  color: #60b3d1;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
-  border: 1px solid #4CAF50;
+  border: 1px solid #60b3d1;
   font-weight: bold;
+  transition: 0.3s;
 }
-
+.hero .btn-secondary:hover {
+  transform: scale(1.05);
+}
 /* Features Section */
 .features {
   background-color: #eef5ff;
   padding: 60px 20px;
   text-align: center;
+  margin-top: -40px;
 }
 
 .features h2 {
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-top: -10px;
+  margin-bottom: 50px;
+  color: #012641;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.features h2:hover {
+  transform: scale(1.02);
+  text-decoration: underline;
 }
 
 .featureList {
@@ -80,6 +122,16 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   max-width: 250px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.feature:hover {
+  transform: scale(1.05);
+}
+
+.feature h3 {
+  color: #012641;
+  margin-bottom: 10px;
 }
 
 /* How It Works Section */
@@ -92,11 +144,17 @@
 .howItWorks h2 {
   font-size: 2rem;
   margin-bottom: 20px;
+  color: #012641;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.howItWorks h2:hover {
+  transform: scale(1.02);
+  text-decoration: underline;
 }
 
 .howItWorks p {
   font-size: 1.1rem;
-  color: #666;
   margin-bottom: 30px;
 }
 
@@ -113,6 +171,15 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   max-width: 200px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.step:hover {
+  transform: scale(1.05);
+}
+.step h3 {
+  color: #012641;
+  margin-bottom: 10px;
 }
 
 /* Benefits Section */
@@ -125,6 +192,13 @@
 .benefits h2 {
   font-size: 2rem;
   margin-bottom: 20px;
+  color: #012641;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.benefits h2:hover {
+  transform: scale(1.02);
+  text-decoration: underline;
 }
 
 .benefitList {
@@ -140,6 +214,16 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   max-width: 250px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.benefit:hover {
+  transform: scale(1.05);
+}
+
+.benefit h3 {
+  color: #012641;
+  margin-bottom: 10px;
 }
 
 /* Shortcuts Section */

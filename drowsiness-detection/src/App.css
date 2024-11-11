@@ -10,7 +10,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f0f0f0;
-  width: 100vw; 
+  width: 100vw;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
@@ -18,17 +18,22 @@ body {
 
 /* Header styles */
 header {
-  background-color: #282c34;
-  color: white;
   padding: 0;
   margin-top: 0px;
   text-align: center;
   width: 100vw; /* Full width */
+  height: 65px;
   position: sticky; /* Stay at the top */
   top: 0;
   left: 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
   z-index: 1000; /* Ensure it stays on top */
+  display: flex;
+}
+
+header div img {
+  width: 120px;
+  float: left;
 }
 
 header h1 {
@@ -36,24 +41,25 @@ header h1 {
   font-size: 30px;
 }
 
-header nav {
-  display: flex;
+header ul li {
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   margin-top: 10px;
+  float: right;
 }
 
-header nav a {
+header ul li a {
   color: white;
   text-decoration: none;
   margin: 0 15px;
   font-size: 20px;
   font-weight: bold;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
-header nav a:hover {
-  color: #61dafb; /* Add a hover effect with a light blue color */
+header ul li a:hover {
+  color: #60b3d1; /* Add a hover effect with a light blue color */
 }
 
 /* Additional layout styles */
@@ -62,6 +68,7 @@ button {
   font-size: 16px;
   margin: 10px;
   cursor: pointer;
+  background-color: #60b3d1;
 }
 
 .detection {
@@ -111,7 +118,6 @@ p {
 }
 
 li {
-  background: #f9f9f9;
   margin: 5px 0;
   padding: 10px;
   border-radius: 5px;

@@ -1,9 +1,10 @@
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   height: 100%;
   overflow: hidden;
-  font-family: 'Arial', sans-serif; /* Cleaner font for modern look */
+  font-family: "Arial", sans-serif; /* Cleaner font for modern look */
 }
 
 .history-page {
@@ -13,11 +14,12 @@ body, html {
   padding: 20px;
   overflow: hidden;
   background-color: #f7f1e3; /* Softer background color */
+  margin-top: -50px;
 }
 
 .history-page h2 {
   text-align: center;
-  color: #333;
+  color: #012641;
   font-size: 32px; /* Increase the size */
   font-weight: bold; /* Make the title bolder */
   margin-bottom: 30px;
@@ -25,7 +27,7 @@ body, html {
   text-transform: uppercase; /* Capitalize title */
   letter-spacing: 2px; /* Add some spacing for better styling */
   flex-shrink: 0;
-  border-bottom: 2px solid #ffc107; /* Underline title for emphasis */
+  border-bottom: 2px solid #012641; /* Underline title for emphasis */
   padding-bottom: 10px; /* Add some space below title */
 }
 
@@ -44,7 +46,7 @@ table {
 }
 
 thead {
-  background-color: #ff9800; /* Stronger orange for header */
+  background-color: #012641; /* Stronger orange for header */
   position: sticky;
   top: 0;
   z-index: 999;
@@ -58,15 +60,15 @@ thead th {
   text-align: left;
   text-transform: uppercase; /* Capitalize headings */
   letter-spacing: 4px;
-  border-bottom: 3px solid #e68900; /* Border below headers */
+  border-bottom: 3px solid #012641; /* Border below headers */
 }
 
 tbody tr:nth-child(even) {
-  background-color: #ffeb99; /* Softer color for even rows */
+  background-color: white; /* Softer color for even rows */
 }
 
 tbody tr:nth-child(odd) {
-  background-color: #ffe066; /* Light yellow for odd rows */
+  background-color: #eef5ff; /* Light yellow for odd rows */
 }
 
 tbody td {
@@ -77,15 +79,18 @@ tbody td {
 }
 
 tbody tr:hover {
-  background-color: #ffd54f; /* Slightly darker color on hover */
+  background-color: #60b3d1; /* Slightly darker color on hover */
   transition: background-color 0.3s ease;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid #ddd; /* Softer border for the table */
   text-align: left;
 }
 
-th, td {
+th,
+td {
   font-size: 16px;
 }
