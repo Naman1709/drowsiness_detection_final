@@ -1,7 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Navbar from "./Components/Navbar";
-import Footer from "./Components/Footer"; // Import Footer
+import Navbar from "./Components//HomePage/Navbar";
+import Footer from "./Components/Footer";
+import LoginPage from "./Components/LoginPage";
+import SignupPage from "./Components/SignupPage";
 import Hero from "./Components/HomePage/Hero";
 import DetectionPage from "./Components/DetectionPage";
 import HistoryPage from "./Components/HistoryPage";
@@ -17,6 +19,8 @@ function App() {
         <Route path="/detect" element={<DetectionPage />} />
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/profile" element={<UserProfile />} />
+        <Route path="/login" element={<LoginPage />} /> 
+        <Route path="/signup" element={<SignupPage />} /> 
       </Routes>
       <Footer />
     </Router>

@@ -1,6 +1,7 @@
 // src/Components/Hero.jsx
 import React from "react";
 import styles from "../../Styles/HomePage/Hero.module.css";
+import { Link } from 'react-router-dom';
 
 const Hero = () => (
   <div>
@@ -16,12 +17,12 @@ const Hero = () => (
           real-time drowsiness detection.
         </p>
         <div className={styles.buttons}>
-          <a href="/detect" className={styles["btn-primary"]}>
+          <Link to="/detect" className={styles["btn-primary"]}>
             Get Started for Free
-          </a>
-          <a href="#" className={styles["btn-secondary"]}>
+          </Link>
+          <Link to="/signup" className={styles["btn-secondary"]}>
             Join the Community
-          </a>
+          </Link>
         </div>
       </div>
       <div className={styles.mainimg}>
