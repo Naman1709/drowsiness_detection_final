@@ -1,68 +1,39 @@
-import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from "../Styles/AuthPage/AuthPage.module.css";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
-
-  const handleLogin = async (event) => {
-    event.preventDefault();
-    const credentials = { email, password };
-
-    try {
-      const response = await fetch("http://localhost:5000/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(credentials),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log("Login successful:", data);
-        navigate("/profile");
-      } else {
-        const errorData = await response.json();
-        setError(errorData.message || "Login failed. Please try again.");
-      }
-    } catch (error) {
-      setError("An error occurred. Please try again later.");
-      console.error("Error:", error);
-    }
-  };
-
   return (
-    <div className={styles.container}>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <div className={styles["form-group"]}>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+    <div className={styles.authContainer}>
+      <div className={styles.authCard}>
+        <h2>Welcome back</h2>
+        <p>Please enter your details to sign in.</p>
+        <div className={styles.authButtons}>
+          <button className={`${styles.authButton}`}>
+            <img src="/google.svg" alt="Google" className={styles.icon} />
+            Google
+          </button>
+          <button className={`${styles.authButton}`}>
+            <img src="/github.svg" alt="GitHub" className={styles.icon} />
+            GitHub
+          </button>
         </div>
-        <div className={styles["form-group"]}>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        {error && <p className={styles["error-message"]}>{error}</p>}
-        <button type="submit">Login</button>
-      </form>
-      <p>
-        Don't have an account? <Link to="/signup">Sign Up</Link>
-      </p>
+        <p>or</p>
+        <form>
+          <input type="email" placeholder="Enter your email" required />
+          <input type="password" placeholder="Password" required />
+          <div className={styles.options}>
+            <label>
+              <input type="checkbox" /> Remember for 30 days
+            </label>
+            <Link to="#">Forgot password</Link>
+          </div>
+          <button type="submit" className={styles.signInBtn}>Sign in</button>
+        </form>
+        <p>
+          Don’t have an account? <Link to="/signup">Create account</Link>
+        </p>
+      </div>
     </div>
   );
 };
