@@ -60,7 +60,7 @@
 
 .navbar .buttons li {
   text-decoration: none;
-  margin-left: 15px;
+  /* margin-left: 15px; */
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px;
@@ -68,9 +68,9 @@
   transition: 0.3s;
 }
 
-.navbar .buttons li a{
+.navbar .buttons li a {
   text-decoration: none;
-  margin-left: 15px;
+  /* margin-left: 15px; */
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px;

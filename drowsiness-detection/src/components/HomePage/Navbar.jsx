@@ -1,13 +1,13 @@
-import React from "react"
-import styles from '../../Styles/HomePage/Navbar.module.css'
-import { Link } from 'react-router-dom';
+import React from "react";
+import styles from "../../Styles/HomePage/Navbar.module.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <header>
       <div className={styles.navbar}>
         <div className={styles.imageCont}>
-          <img src="your-image-url-here" alt="Logo" className={styles.logo} />
+          <img src="src/assets/logo.png" alt="Logo" className={styles.logo} />
         </div>
         <ul className={styles.navList}>
           <li>
@@ -25,15 +25,19 @@ const Navbar = () => {
         </ul>
         <ul className={styles.buttons}>
           <li>
-            <Link to="/signup" className={styles.signup}>Sign Up</Link>
+            <Link to="/signup" className={styles.signup}>
+              Sign Up
+            </Link>
           </li>
           <li>
-            <Link to="/login" className={styles.login}>Login</Link>
+            <Link to="/login" className={styles.login}>
+              Login
+            </Link>
           </li>
         </ul>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
