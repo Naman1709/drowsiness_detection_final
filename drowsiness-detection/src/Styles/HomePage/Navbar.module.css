@@ -70,7 +70,6 @@
 
 .navbar .buttons li a {
   text-decoration: none;
-  /* margin-left: 15px; */
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px;
@@ -81,6 +80,7 @@
 .navbar .buttons li:hover {
   transform: scale(1.1);
 }
+
 
 .signup {
   background-color: #60b3d1;

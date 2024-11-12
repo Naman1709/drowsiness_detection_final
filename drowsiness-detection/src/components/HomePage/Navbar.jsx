@@ -25,7 +25,7 @@ const Navbar = () => {
         </ul>
         <ul className={styles.buttons}>
           <li>
-            <Link to="/signup" className={styles.signup}>
+            <Link to="/register" className={styles.signup}>
               Sign Up
             </Link>
           </li>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import styles from "../Styles/AuthPage/AuthPage.module.css"; // Import styles
+// import styles from "../Styles/AuthPage/AuthPage.module.css";
 
 const SignupPage = () => {
   const [name, setName] = useState("");
