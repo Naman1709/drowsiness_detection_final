@@ -1,12 +1,15 @@
 // src/Components/Hero.jsx
 import React from "react";
 import styles from "../../Styles/HomePage/Hero.module.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Hero = () => (
   <div>
     {/* Hero Section */}
     <section className={styles.hero}>
+      <div className={styles.mainimg}>
+        <img src="src/assets/main_img.jpg" alt="main image" />
+      </div>
       <div className={styles.container}>
         <h1>
           Enhance Your Driving Safety with Drowsiness Detection Technology
@@ -24,9 +27,6 @@ const Hero = () => (
             Join the Community
           </Link>
         </div>
-      </div>
-      <div className={styles.mainimg}>
-        <img src="src/assets/main_img.jpg" alt="main image" />
       </div>
     </section>
 

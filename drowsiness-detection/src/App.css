@@ -21,13 +21,12 @@ header {
   padding: 0;
   margin-top: 0px;
   text-align: center;
-  width: 100vw; /* Full width */
+  width: 100vw;
   height: 65px;
-  position: sticky; /* Stay at the top */
+  position: sticky;
   top: 0;
   left: 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  z-index: 1000; /* Ensure it stays on top */
+  z-index: 1000;
   display: flex;
 }
 
@@ -42,9 +41,6 @@ header h1 {
 }
 
 header ul li {
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   margin-top: 10px;
   float: right;
 }
@@ -52,17 +48,11 @@ header ul li {
 header ul li a {
   color: white;
   text-decoration: none;
-  margin: 0 15px;
   font-size: 20px;
   font-weight: bold;
   transition: color 0.2s ease;
 }
 
-header ul li a:hover {
-  color: #60b3d1; /* Add a hover effect with a light blue color */
-}
-
-/* Additional layout styles */
 button {
   padding: 10px 20px;
   font-size: 16px;

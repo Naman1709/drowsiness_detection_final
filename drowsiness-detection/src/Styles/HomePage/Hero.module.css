@@ -8,8 +8,7 @@
 
 /* Hero Section */
 .hero {
-  background-color: #f8f9fc;
-  color: #333;
+  background-color: white;
   padding: 80px 20px;
   text-align: center;
   display: flex;
@@ -21,14 +20,14 @@
 .container {
   width: 650px;
   padding: 0 20px;
-  float: left;
-}
-.mainimg {
   float: right;
 }
+.mainimg {
+  float: left;
+}
 .mainimg img {
-  width: 550px;
-  border-radius: 20px;
+  width: 800px;
+  border-radius: 10px;
   transition: 0.3s;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -39,37 +38,40 @@
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 3.6rem;
   margin-bottom: 20px;
-  color: #012641;
+  color: 223634;
+  text-align: right;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .hero h1:hover {
   transform: scale(1.02);
-  text-decoration: underline;
 }
 
 .hero p {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+  text-align: right;
   margin-bottom: 30px;
-  color: #555;
+  color: #494949;
 }
 
 .hero .buttons {
   display: flex;
   gap: 15px;
   justify-content: center;
+  align-content: center;
 }
 
 .hero .btn-primary {
-  background-color: #60b3d1;
+  background-color: #223634;
   color: white;
-  padding: 10px 20px;
+  padding: 15px 30px;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
+  font-size: 20px;
   transition: 0.3s;
 }
 .hero .btn-primary:hover {
@@ -77,11 +79,14 @@
 }
 
 .hero .btn-secondary {
-  color: #60b3d1;
+  color: #223634;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
-  border: 1px solid #60b3d1;
+  align-content: center;
+  border: 1px solid #223634;
+
+  font-size: 20px;
   font-weight: bold;
   transition: 0.3s;
 }
