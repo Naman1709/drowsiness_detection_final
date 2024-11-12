@@ -68,6 +68,16 @@
   transition: 0.3s;
 }
 
+.navbar .buttons li a{
+  text-decoration: none;
+  margin-left: 15px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
 .navbar .buttons li:hover {
   transform: scale(1.1);
 }

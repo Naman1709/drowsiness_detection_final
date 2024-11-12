@@ -24,8 +24,12 @@ const Navbar = () => {
           </li>
         </ul>
         <ul className={styles.buttons}>
-          <li className={styles.signup}>Sign Up</li>
-          <li className={styles.login}>Login</li>
+          <li>
+            <Link to="/signup" className={styles.signup}>Sign Up</Link>
+          </li>
+          <li>
+            <Link to="/login" className={styles.login}>Login</Link>
+          </li>
         </ul>
       </div>
     </header>
