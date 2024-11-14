@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import styles from "../Styles/AuthPage/AuthPage.module.css"; // Import styles
+import styles from "../Styles/AuthPage/AuthPage.module.css";
 
 const SignupPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emergencyContact, setEmergencyContact] = useState("");
-  const [alternateEmergencyContact, setAlternateEmergencyContact] = useState("");
+  const [alternateEmergencyContact, setAlternateEmergencyContact] =
+    useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -46,7 +47,7 @@ const SignupPage = () => {
 
   return (
     <div className={styles.container}>
-      <h2>Register</h2>
+      <h2>Sign Up</h2>
       <form onSubmit={handleSignup}>
         <div className={styles["form-group"]}>
           <label>Name:</label>
@@ -54,6 +55,7 @@ const SignupPage = () => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            placeholder="Enter your name"
             required
           />
         </div>
@@ -63,6 +65,7 @@ const SignupPage = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email"
             required
           />
         </div>
@@ -72,6 +75,7 @@ const SignupPage = () => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter password"
             required
           />
         </div>
@@ -82,7 +86,7 @@ const SignupPage = () => {
             value={emergencyContact}
             onChange={(e) => setEmergencyContact(e.target.value)}
             required
-            pattern="^[0-9]{10}$" // Regex for a 10-digit phone number
+            pattern="^[0-9]{10}$"
             placeholder="Enter 10-digit number"
           />
         </div>
@@ -92,12 +96,12 @@ const SignupPage = () => {
             type="tel"
             value={alternateEmergencyContact}
             onChange={(e) => setAlternateEmergencyContact(e.target.value)}
-            pattern="^[0-9]{10}$" // Regex for a 10-digit phone number
+            pattern="^[0-9]{10}$"
             placeholder="Enter 10-digit number (optional)"
           />
         </div>
         {error && <p className={styles["error-message"]}>{error}</p>}
-        <button type="submit">Signup</button>
+        <button type="submit">Sign Up</button>
       </form>
       <p>
         Already a user? <Link to="/login">Login</Link>

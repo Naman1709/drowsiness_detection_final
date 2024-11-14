@@ -1,15 +1,106 @@
-/* src/components/DetectionPage.css */
-
-.detection {
-  width: 100vw; /* Full width of the viewport */
-  margin: 0; /* Remove default margin */
-  padding: 20px; /* Padding for inner spacing */
-  box-sizing: border-box; /* Include padding in width calculation */
-  position: relative; /* Ensure it stays in place */
+/* Overall page styling */
+.detection-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background: #f4f7fa; /* Light background for a modern, clean look */
+  padding: 40px 20px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
 }
 
-.detection h2 {
-  color: #012641;
+.detection-page h2 {
+  font-size: 2.5rem;
+  color: #223634; /* Deep green for professionalism */
   margin-bottom: 10px;
-  cursor: pointer;
+}
+
+.detection-page .description {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+/* Card container styling */
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 800px; /* Width limit for larger screens */
+  margin-bottom: 40px; /* Space between the cards */
+  text-align: center;
+}
+
+.card h3 {
+  font-size: 1.6rem;
+  color: #223634;
+  margin-bottom: 20px;
+}
+
+/* Webcam Feed card styling */
+.webcam-feed {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* Drowsiness Indicator card styling */
+.drowsiness-indicator {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* Alerts card styling */
+.alerts {
+  background-color: #fffbf0;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.alerts .alert-message {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #d32f2f; /* Red for critical alert */
+}
+
+/* Alert color variations */
+.alerts.green {
+  background-color: #e8f5e9;
+}
+
+.alerts.red {
+  background-color: #ffebee;
+}
+
+.alerts.yellow {
+  background-color: #fff8e1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .detection-page h2 {
+    font-size: 2rem;
+  }
+
+  .detection-page .description {
+    font-size: 1rem;
+  }
+
+  .card {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .card h3 {
+    font-size: 1.4rem;
+  }
+
+  .alerts .alert-message {
+    font-size: 1rem;
+  }
 }

@@ -11,6 +11,7 @@ function DrowsinessIndicator({ alert }) {
           width: "100px",
           height: "100px",
           borderRadius: "50%",
+          marginLeft: "330px",
         }}
       />
     </div>

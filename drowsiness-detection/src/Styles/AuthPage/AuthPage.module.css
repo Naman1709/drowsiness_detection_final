@@ -1,96 +1,140 @@
-/* src/Styles/AuthPage/AuthPage.module.css */
-
 /* General styling for form container */
 .container {
-    width: 100%;
-    max-width: 500px; /* You can adjust this for a larger form */
-    margin: 50px auto;
+  width: 100%;
+  max-width: 600px; /* Width adjusted for a more compact form */
+  margin: 50px auto;
+  padding: 2.5rem;
+  background-color: #ffffff; /* White background */
+  border-radius: 12px; /* Rounded corners for modern look */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for a floating effect */
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Hover effect for the container */
+.container:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow on hover */
+}
+
+/* Heading Styling */
+h2 {
+  font-size: 2.4rem; /* Larger heading */
+  margin-bottom: 1.5rem; /* Space below the heading */
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  color: #223634; /* Dark teal for title */
+}
+
+/* Paragraph Styling */
+p {
+  font-size: 1.2rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Form Group Styling (Spacing between fields) */
+.form-group {
+  margin-bottom: 1.8rem;
+}
+
+/* Label Styling */
+label {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+  font-family: "Arial", sans-serif;
+  color: #333;
+}
+
+/* Input Field Styling */
+input {
+  width: 100%;
+  padding: 1.1rem;
+  font-size: 1.3rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  box-sizing: border-box;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus State Styling for Input Fields */
+input:focus {
+  border-color: #223634; /* Dark teal border on focus */
+  box-shadow: 0 0 8px rgba(34, 54, 52, 0.5); /* Subtle glow */
+}
+
+/* Specific Input Field Types */
+input[type="password"],
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  margin-bottom: 1.5rem;
+}
+
+/* Button Styling */
+button {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  background-color: #223634; /* Dark teal button color */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Button Hover State */
+button:hover {
+  background-color: #1a2a2e;
+}
+
+/* Error Message Styling */
+.error-message {
+  color: red;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* Link Styling for Login/Signup Links */
+a {
+  color: #223634; /* Dark teal links */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
     padding: 2rem;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-  
+
   h2 {
-    font-size: 2.2rem; /* Increase heading font size */
-    margin-bottom: 1.8rem; /* Add a little more space below heading */
-    text-align: center;
-    font-family: 'Arial', sans-serif;
+    font-size: 2rem;
   }
-  
-  p {
-    font-size: 1.2rem; /* Increase paragraph font size */
-    color: #555;
-  }
-  
-  .form-group {
-    margin-bottom: 1.8rem; /* Increase margin between input fields */
-  }
-  
+
   label {
-    display: block;
-    font-size: 1.3rem; /* Increase label font size */
-    margin-bottom: 0.6rem;
-    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem;
   }
-  
-  input {
-    width: 100%;
-    padding: 0.9rem; /* Increase padding for better touch interaction */
-    font-size: 1.3rem; /* Increase font size inside input */
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    outline: none;
-    box-sizing: border-box;
-  }
-  
-  input[type="password"], input[type="text"], input[type="email"], input[type="tel"] {
-    margin-bottom: 1.3rem; /* Add space between fields */
-  }
-  
+
+  input,
   button {
-    width: 100%;
-    padding: 1.2rem;
-    font-size: 1.3rem; /* Increase font size on button */
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    font-size: 1.2rem;
   }
-  
-  button:hover {
-    background-color: #0056b3;
+
+  button {
+    padding: 1rem;
   }
-  
-  .error-message {
-    color: red;
-    font-size: 1.2rem; /* Increase error message font size */
-    margin-top: 1.3rem;
-    text-align: center;
+
+  .form-group {
+    margin-bottom: 1.5rem;
   }
-  
-  /* Optional: Responsive design for small screens */
-  @media (max-width: 768px) {
-    .container {
-      width: 90%;
-      padding: 1.8rem;
-    }
-  
-    h2 {
-      font-size: 2rem;
-    }
-  
-    label {
-      font-size: 1.1rem;
-    }
-  
-    input, button {
-      font-size: 1.2rem;
-    }
-  
-    button {
-      padding: 1rem;
-    }
-  }
-  
+}

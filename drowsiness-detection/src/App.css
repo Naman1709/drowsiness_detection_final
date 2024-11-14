@@ -53,13 +53,13 @@ header ul li a {
   transition: color 0.2s ease;
 }
 
-button {
+/* button {
   padding: 10px 20px;
   font-size: 16px;
   margin: 10px;
   cursor: pointer;
   background-color: #60b3d1;
-}
+} */
 
 .detection {
   display: flex;
@@ -87,16 +87,16 @@ video {
   height: auto; /* Maintain aspect ratio */
 }
 
-h2 {
+/* h2 {
   color: #333;
-  text-align: center; /* Center the text */
+  text-align: center;
   font-size: 30px;
 }
 
 p {
   text-align: center;
   font-size: 18px;
-}
+} */
 
 .indicator {
   margin-top: 20px;

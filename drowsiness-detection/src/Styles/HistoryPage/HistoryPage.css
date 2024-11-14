@@ -1,96 +1,100 @@
-body,
-html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
-  font-family: "Arial", sans-serif; /* Cleaner font for modern look */
-}
-
+/* General Styles for HistoryPage */
 .history-page {
   display: flex;
-  flex-direction: column;
-  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f7fa;
+  font-family: "Roboto", sans-serif;
   padding: 20px;
-  overflow: hidden;
-  background-color: #f7f1e3; /* Softer background color */
-  margin-top: -50px;
 }
 
-.history-page h2 {
+.history-card {
+  background-color: #fff;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
   text-align: center;
-  color: #012641;
-  font-size: 32px; /* Increase the size */
-  font-weight: bold; /* Make the title bolder */
-  margin-bottom: 30px;
-  margin-top: 80px;
-  text-transform: uppercase; /* Capitalize title */
-  letter-spacing: 2px; /* Add some spacing for better styling */
-  flex-shrink: 0;
-  border-bottom: 2px solid #012641; /* Underline title for emphasis */
-  padding-bottom: 10px; /* Add some space below title */
+}
+
+.history-card h2 {
+  font-size: 2rem;
+  color: #223634;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 20px;
 }
 
 .table-container {
-  flex-grow: 1;
-  overflow-y: auto;
-  overflow-x: auto;
-  padding-right: 10px; /* Add padding for smoother scrolling */
+  overflow-x: auto; /* Enables horizontal scrolling if needed */
+  max-height: 400px; /* Sets a maximum height for the table container */
+  margin-top: 20px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* Add a soft shadow */
+  table-layout: fixed; /* Helps with fixed column widths */
 }
 
-thead {
-  background-color: #012641; /* Stronger orange for header */
+th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #223634;
+  color: white;
+  font-size: 1.1rem;
+}
+
+td {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Hover effect on table rows */
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Fix table headers when scrolling */
+.table-container table thead {
   position: sticky;
   top: 0;
-  z-index: 999;
+  background-color: #223634; /* Ensure header stays visible */
+  z-index: 1;
 }
 
-thead th {
-  color: white; /* Make the header text white for contrast */
-  font-weight: bold;
-  font-size: 18px; /* Larger font for headings */
-  padding: 16px; /* Add more padding for spacious look */
-  text-align: left;
-  text-transform: uppercase; /* Capitalize headings */
-  letter-spacing: 4px;
-  border-bottom: 3px solid #012641; /* Border below headers */
-}
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .history-card {
+    width: 90%;
+    padding: 20px;
+  }
 
-tbody tr:nth-child(even) {
-  background-color: white; /* Softer color for even rows */
-}
+  .history-card h2 {
+    font-size: 1.5rem;
+  }
 
-tbody tr:nth-child(odd) {
-  background-color: #eef5ff; /* Light yellow for odd rows */
-}
+  .description {
+    font-size: 1rem;
+  }
 
-tbody td {
-  padding: 14px;
-  color: #333;
-  font-size: 20px;
-  word-wrap: break-word;
-}
+  table {
+    font-size: 0.9rem;
+  }
 
-tbody tr:hover {
-  background-color: #60b3d1; /* Slightly darker color on hover */
-  transition: background-color 0.3s ease;
-}
-
-table,
-th,
-td {
-  border: 1px solid #ddd; /* Softer border for the table */
-  text-align: left;
-}
-
-th,
-td {
-  font-size: 16px;
+  th,
+  td {
+    padding: 10px;
+  }
 }

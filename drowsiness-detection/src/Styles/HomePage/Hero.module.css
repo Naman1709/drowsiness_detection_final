@@ -1,4 +1,8 @@
 /* General Layout */
+.mainbody {
+  background-color: white;
+}
+
 .mainCont {
   display: flex;
   flex-direction: column;
@@ -93,164 +97,340 @@
 .hero .btn-secondary:hover {
   transform: scale(1.05);
 }
+
 /* Features Section */
 .features {
-  background-color: #eef5ff;
+  background-color: #223634; /* Dark background */
+  color: #f1f1f1; /* Light text */
   padding: 60px 20px;
-  text-align: center;
-  margin-top: -40px;
+  font-family: "Roboto", sans-serif;
+  height: 850px;
 }
 
 .features h2 {
-  font-size: 2rem;
-  margin-top: -10px;
-  margin-bottom: 50px;
-  color: #012641;
-  transition: 0.3s;
-  cursor: pointer;
-}
-.features h2:hover {
-  transform: scale(1.02);
-  text-decoration: underline;
+  font-size: 3rem;
+  color: #ffffff;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.featureList {
+/* Container to hold the feature list and image */
+.featureContainer {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+/* Left section for the feature list */
+.featureList {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
-  justify-content: center;
 }
 
 .feature {
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  max-width: 250px;
+  background-color: #1a2a29; /* Slightly lighter background for each feature */
+  border-radius: 8px;
   transition: 0.3s;
-  cursor: pointer;
 }
+
 .feature:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .feature h3 {
-  color: #012641;
+  font-size: 1.5rem;
+  font-weight: 600;
   margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.feature p {
+  font-size: 1rem;
+  color: #eaeaea;
+  text-align: left;
+}
+
+/* Right side for the image */
+.featureImage {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.featureImage img {
+  width: 700px;
+  height: auto;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.featureImage img:hover {
+  transform: scale(1.03);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .featureContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .featureImage {
+    margin-top: 30px;
+  }
+
+  .featureList {
+    text-align: center;
+  }
 }
 
 /* How It Works Section */
 .howItWorks {
-  background-color: #ffffff;
+  background-color: #ffffff; /* White background */
+  color: #223634; /* Dark text for contrast */
   padding: 60px 20px;
-  text-align: center;
+  font-family: "Roboto", sans-serif;
+  margin-left: 250px;
+  margin-top: -180px;
+  width: 70vw; /* Width of 70% of the viewport width */
+  z-index: 2; /* Ensure it stays above the Features section */
+  border-radius: 8px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Add a shadow to make it stand out */
 }
 
 .howItWorks h2 {
-  font-size: 2rem;
+  font-size: 3rem;
+  color: black; /* Dark text color */
+  font-weight: 700;
+  text-align: center;
   margin-bottom: 20px;
-  color: #012641;
-  transition: 0.3s;
-  cursor: pointer;
-}
-.howItWorks h2:hover {
-  transform: scale(1.02);
-  text-decoration: underline;
+  margin-top: -15px;
 }
 
 .howItWorks p {
-  font-size: 1.1rem;
-  margin-bottom: 30px;
+  text-align: center;
+  font-size: 1rem;
+  color: #555; /* A lighter gray for paragraph text */
+  margin-bottom: 40px;
 }
 
+/* Grid Layout for Steps */
 .steps {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 30px;
+  max-width: 100%; /* Ensure it fills the available width */
+  margin: 0 auto;
 }
 
 .step {
-  background-color: #f8f9fc;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f1f1f1; /* Light background for each step */
+  border-radius: 8px;
   padding: 20px;
-  max-width: 200px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
-  cursor: pointer;
 }
+
 .step:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
+
 .step h3 {
-  color: #012641;
+  font-size: 1.5rem;
+  color: #223634; /* Dark color for headings */
+  font-weight: 600;
   margin-bottom: 10px;
+}
+
+.step p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+  .steps {
+    grid-template-columns: 1fr; /* Stack steps in one column on small screens */
+    gap: 20px;
+  }
+
+  .howItWorks {
+    top: 80%; /* Adjust position when on mobile */
+    width: 90vw; /* Make the section wider on mobile */
+  }
+}
+
+/* Image Section */
+/* General Styles for the Accidents Section */
+.accidentsSection {
+  background-color: #ffffff; /* White background */
+  padding: 60px 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: black; /* Dark text color */
+  font-weight: 700;
+  margin-bottom: 40px;
+  margin-top: -20px;
+}
+
+/* Grid Layout for the Images */
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three images in a row */
+  /* gap: 10px; */
+  margin: 0 auto; /* Center the grid */
+}
+
+.imageItem1 img {
+  width: 464px; /* Make the image fill the container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Rounded corners for images */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow around images */
+  transition: 0.3s;
+}
+.imageItem1 img:hover {
+  transform: scale(1.02);
+}
+
+.imageItem2 img {
+  width: 504px; /* Make the image fill the container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Rounded corners for images */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow around images */
+  transition: 0.3s;
+}
+.imageItem2 img:hover {
+  transform: scale(1.02);
+}
+
+.imageItem3 img {
+  width: 502px; /* Make the image fill the container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Rounded corners for images */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow around images */
+  transition: 0.3s;
+}
+.imageItem3 img:hover {
+  transform: scale(1.02);
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+  .imageGrid {
+    grid-template-columns: 1fr; /* Stack images vertically on small screens */
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 1.5rem; /* Smaller font size on mobile */
+    margin-bottom: 30px;
+  }
 }
 
 /* Benefits Section */
 .benefits {
-  background-color: #f0f8ff;
+  background-color: #223634; /* Dark background */
   padding: 60px 20px;
-  text-align: center;
+  color: #f1f1f1; /* Light text color */
+  font-family: "Roboto", sans-serif;
+  margin-bottom: -10px;
 }
 
-.benefits h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #012641;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.benefits h2:hover {
-  transform: scale(1.02);
-  text-decoration: underline;
-}
-
-.benefitList {
+.benefitContent {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.benefit {
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  max-width: 250px;
-  cursor: pointer;
+/* Left side for the image */
+.imageContainer {
+  flex: 1;
+}
+
+.imageContainer img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   transition: 0.3s;
 }
-.benefit:hover {
-  transform: scale(1.05);
+.imageContainer img:hover {
+  transform: scale(1.02);
 }
 
-.benefit h3 {
-  color: #012641;
-  margin-bottom: 10px;
+/* Right side for the benefits list with bullet points */
+.benefitList {
+  flex: 1;
+  color: #f1f1f1; /* Light text color */
 }
 
-/* Shortcuts Section */
-.shortcuts {
-  background-color: #eef5ff;
-  padding: 60px 20px;
-  text-align: center;
+.benefitList h2 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 30px;
 }
 
-.shortcuts h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+.benefitList ul {
+  list-style-type: disc; /* Adds bullet points */
+  padding-left: 20px; /* Adds indentation for the bullet points */
 }
 
-.keyboard img {
-  width: 100%;
-  max-width: 600px;
-  margin-top: 20px;
+.benefitList li {
+  font-size: 1.2rem;
+  color: #eaeaea;
+  margin-bottom: 15px;
 }
 
-.shortcuts p {
-  font-size: 1.1rem;
-  color: #666;
-  margin-top: 20px;
+.benefitList li strong {
+  font-weight: bold;
+  color: #ffffff; /* Make the headings bold and white */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .benefitContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .imageContainer img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .benefitList h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .benefitList ul {
+    padding-left: 0;
+    list-style-type: none; /* Remove the default bullet points on mobile */
+  }
+
+  .benefitList li {
+    font-size: 1rem;
+  }
+}
+
+hr {
+  background-color: white;
+  height: 0.1px;
 }
