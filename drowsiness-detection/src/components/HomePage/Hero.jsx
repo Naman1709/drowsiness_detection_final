@@ -23,7 +23,7 @@ const Hero = () => (
           <Link to="/detect" className={styles["btn-primary"]}>
             Get Started for Free
           </Link>
-          <Link to="/signup" className={styles["btn-secondary"]}>
+          <Link to="/register" className={styles["btn-secondary"]}>
             Join the Community
           </Link>
         </div>

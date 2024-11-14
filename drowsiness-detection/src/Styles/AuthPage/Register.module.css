@@ -1,0 +1,124 @@
+.container {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 1.3rem;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  row-gap: 7px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+
+h2 {
+  margin: 0;
+}
+
+p {
+  font-size: 15px;
+  color: #666;
+}
+
+.socialButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.googleBtn,
+.githubBtn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin: 0 5px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.googleBtn {
+  background-color: white;
+  border: 1px solid #ddd;
+}
+
+.githubBtn {
+  background-color: white;
+  border: 1px solid #ddd;
+}
+
+.socialIcon {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.orText {
+  margin: 10px 0;
+  color: #888;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.formOptions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #666;
+  padding-left: 5px;
+}
+
+.signUpBtn {
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.footer a {
+  margin-left: 5px;
+  color: #007bff;
+  text-decoration: none;
+}
