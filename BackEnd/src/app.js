@@ -2,7 +2,7 @@ const express = require("express")
 const path = require("path")
 const cookieParser = require("cookie-parser")
 const cors = require("cors")
-const {errorHandler} = require("./middlewares/errorHandler.middleware")
+const { errorHandler } = require("./middlewares/errorHandler.middleware")
 const app = express()
 
 const corsOptions = {
@@ -18,10 +18,11 @@ app.use(express.static(path.resolve(__dirname, "../public")))
 
 // User Router
 const userRouter = require("./routes/user.route")
+const logRouter = require("./routes/log.route")
 app.use("/api/v1/user", userRouter)
+app.use("/api/v1/log", logRouter)
 
 // Add Error MiddleWares
 app.use(errorHandler)
-
 
 module.exports = app

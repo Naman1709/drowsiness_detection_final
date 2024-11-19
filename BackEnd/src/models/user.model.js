@@ -28,6 +28,22 @@ const userSchema = new mongoose.Schema(
       required: [true, "Confirm Password is Required"],
       trim: true,
     },
+    phoneNumber: {
+      type: String,
+      required: [true, "Phone number is required"],
+      validate: {
+        validator: function (v) {
+          return /^(\+?[1-9]{1}[0-9]{1,14})$/.test(v)
+        },
+        message: (props) => `${props.value} is not a valid phone number!`,
+      },
+    },
+    logs: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Log", 
+      },
+    ],
   },
   { timestamps: true }
 )
