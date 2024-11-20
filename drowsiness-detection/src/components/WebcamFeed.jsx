@@ -24,7 +24,7 @@ function WebcamFeed() {
 
     intervalRef.current = setInterval(() => {
       captureFrame();
-    }, 300); // Capture every 0.3 seconds
+    }, 100); // Capture every 0.3 seconds
 
     return () => {
       clearInterval(intervalRef.current);
@@ -42,7 +42,7 @@ function WebcamFeed() {
     if (canvas && video) {
       const context = canvas.getContext('2d');
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
-      sendFrame(canvas.toDataURL('image/png')); // Send frame as base64
+      sendFrame(canvas.toDataURL('image/png' , 0.5)); // Send frame as base64
     }
   };
 

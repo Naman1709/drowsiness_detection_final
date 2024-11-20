@@ -8,7 +8,7 @@ const Register = () => {
     name: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    phoneNo: "",
   })
 
   const [loading, setLoading] = useState(false)
@@ -23,15 +23,10 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const { name, email, password, confirmPassword } = formData
+    const { name, email, password,  phoneNo } = formData
 
-    if (!name || !email || !password || !confirmPassword) {
+    if (!name || !email || !password || !phoneNo) {
       toast.error("All fields are required.")
-      return
-    }
-
-    if (password !== confirmPassword) {
-      toast.error("Passwords do not match.")
       return
     }
 
@@ -48,7 +43,7 @@ const Register = () => {
             username: name,
             email,
             password,
-            confirmPassword,
+            phoneNumber: phoneNo,
           }),
         }
       )
@@ -93,19 +88,19 @@ const Register = () => {
             onChange={handleChange}
           />
           <input
+            type="text"
+            name="phoneNo"
+            placeholder="Enter emergency contact"
+            className={styles.input}
+            value={formData.phoneNo}
+            onChange={handleChange}
+          />
+          <input
             type="password"
             name="password"
             placeholder="Password"
             className={styles.input}
             value={formData.password}
-            onChange={handleChange}
-          />
-          <input
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirm Password"
-            className={styles.input}
-            value={formData.confirmPassword}
             onChange={handleChange}
           />
           <div className={styles.formOptions}>

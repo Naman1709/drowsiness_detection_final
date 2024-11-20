@@ -9,13 +9,16 @@ import io
 from PIL import Image
 from flask_cors import CORS  # Import CORS
 import time  # Import for handling duration
+import os
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
+cwd = os.path.dirname(__file__)
+
 # Load the face detector and shape predictor
 detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
+predictor = dlib.shape_predictor(cwd+'/shape_predictor_68_face_landmarks.dat')
 
 # Constants
 EYE_AR_THRESH = 0.25

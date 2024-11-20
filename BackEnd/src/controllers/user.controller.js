@@ -9,13 +9,15 @@ const options = {
 }
 
 const userRegister = asyncHandler(async (req, res) => {
-  const { username, email, password, confirmPassword } = req.body
+  const { username, email, password, phoneNumber } = req.body
+  console.log(req.body);
+  
 
   if (
     !username?.trim() ||
     !email?.trim() ||
-    !password?.trim() ||
-    !confirmPassword?.trim()
+    !password?.trim() || 
+    !phoneNumber?.trim()
   ) {
     throw new ApiError(400, "Enter Valid Credentials")
   }
@@ -30,7 +32,7 @@ const userRegister = asyncHandler(async (req, res) => {
     throw new ApiError(409, "Email already exists")
   }
 
-  const user = await User.create({ username, email, password, confirmPassword })
+  const user = await User.create({ username, email, password , phoneNumber })
   if (!user) {
     throw new ApiError(500, "Error Occurred While Creating User")
   }

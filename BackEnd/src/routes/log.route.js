@@ -1,9 +1,10 @@
 const express = require("express")
-const { createLog } = require("../controllers/log.controller.js")
+const { createLog , showLogs } = require("../controllers/log.controller.js")
 const { verifyJWT } = require("../middlewares/auth.middleware.js")
 
 const logRouter = express.Router()
 
-logRouter.route("/checkLog").get(verifyJWT, createLog)
+logRouter.route("/createLog").post(verifyJWT, createLog)
+logRouter.route("/showLog").get(verifyJWT, showLogs)
 
 module.exports = logRouter

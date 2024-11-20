@@ -4,12 +4,12 @@ const riskFactorEnum = ["high", "low"]
 
 
 const logSchema = new mongoose.Schema({
-  title: {
+  time: {
     type: String,
     required: true,
   },
   date: {
-    type: Date,
+    type: String,
     required: true,
   },
   type: {

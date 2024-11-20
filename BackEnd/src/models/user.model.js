@@ -23,11 +23,6 @@ const userSchema = new mongoose.Schema(
       required: [true, "Password is Required"],
       trim: true,
     },
-    confirmPassword: {
-      type: String,
-      required: [true, "Confirm Password is Required"],
-      trim: true,
-    },
     phoneNumber: {
       type: String,
       required: [true, "Phone number is required"],
@@ -51,12 +46,7 @@ const userSchema = new mongoose.Schema(
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next()
 
-  if (this.password !== this.confirmPassword) {
-    return next(new Error("Passwords do not match"))
-  }
-
   this.password = await bcrypt.hash(this.password, 10)
-  this.confirmPassword = undefined
   next()
 })
 
