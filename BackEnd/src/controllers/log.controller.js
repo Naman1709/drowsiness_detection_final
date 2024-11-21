@@ -2,68 +2,82 @@ const { ApiError } = require("../utils/ApiError")
 const { ApiResponse } = require("../utils/ApiResponse")
 const Log = require("../models/log.model")
 const User = require("../models/user.model")
-const {asyncHandler} = require("../utils/asyncHandler")
+const { asyncHandler } = require("../utils/asyncHandler")
 const Twilio = require("twilio")
 
 const client = Twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH_TOKEN)
 
-const showLogs = asyncHandler(async(req , res) =>{
-  const user = req.user;
+const sendAlert = asyncHandler(async (req, res) => {
+  const user = req.user
+  const { blinkCounter } = req.body
+  const time = (blinkCounter * 100) / 1000
+  if (!user) throw new ApiError(401, "Unauthorized Access")
 
-  if(!user) throw new ApiError(401 , "Unauthorized Access");
+  await client.messages.create({
+    body: `This is an automated message to inform you that ${req.username} has been detected as sleeping since ${time} seconds while driving. Immediate action is advised to ensure their safety. Please reach out to ${req.username} immediately to confirm their well-being or assist if necessary. Stay safe!`,
+    from: process.env.TWILIO_PHONE_NUMBER,
+    to: "+919289847629",
+  })
 
-  const allLogs = user.logs;
+  res.status(200).json(new ApiResponse(200, {}, "SMS Alert Sent Successfully"))
+})
+const showLogs = asyncHandler(async (req, res) => {
+  const user = req.user
 
-  console.log(allLogs);
+  if (!user) throw new ApiError(401, "Unauthorized Access")
 
-  res.status(200).json(new ApiResponse(200 , {logs : allLogs} , "Logs Retrieved Successfully"));
+  const allLogs = user.logs
+
+  res
+    .status(200)
+    .json(
+      new ApiResponse(200, { logs: allLogs }, "Logs Retrieved Successfully")
+    )
 })
 
 const createLog = asyncHandler(async (req, res) => {
-  const { time, date, type } = req.body;
+  const { time, date, type } = req.body
 
-  const user = req.user;
+  const user = req.user
 
   if (!time || !date || !type) {
-    throw new ApiError(400, "Invalid Credentials");
+    throw new ApiError(400, "Invalid Credentials")
   }
 
-  const logTime = new Date(time); 
+  const logTime = new Date(time)
 
-  
   if (isNaN(logTime.getTime())) {
-    throw new ApiError(400, "Invalid time format");
+    throw new ApiError(400, "Invalid time format")
   }
 
-  const tenMinutesAgo = new Date(logTime.getTime() - 10 * 60 * 1000);
+  const tenMinutesAgo = new Date(logTime.getTime() - 10 * 60 * 1000)
 
-  await user.populate("logs");
+  await user.populate("logs")
 
   const recentLogs = user.logs.filter((log) => {
-    const logCreatedAt = new Date(log.time);
-    return logCreatedAt >= tenMinutesAgo && logCreatedAt < logTime;
-  });
+    const logCreatedAt = new Date(log.time)
+    return logCreatedAt >= tenMinutesAgo && logCreatedAt < logTime
+  })
 
-  let riskFactor = "low";
+  let riskFactor = "low"
   if (recentLogs.length >= 4) {
     await client.messages.create({
-      body: "WARNING: You have ignored multiple drowsiness alerts. Please take a break.",
-      from: process.env.TWILIO_PHONE_NUMBER, // Ensure this is a valid Twilio number
-      to: "+919289847629" // Ensure this is a correctly formatted number
-    });    
-    riskFactor = "high";
-
+      body: `This is an automated message to inform you that ${req.username} has been ignored multiple alerts as sleeping while driving. Immediate action is advised to ensure their safety. Please reach out to ${req.username} immediately to confirm their well-being or assist if necessary. Stay safe!`,
+      from: process.env.TWILIO_PHONE_NUMBER,
+      to: "+919289847629",
+    })
+    riskFactor = "high"
   }
-    const newLog = new Log({
-      type: type,
-      time: time,
-      date: date,
-      riskFactor,
-    });
+  const newLog = new Log({
+    type: type,
+    time: time,
+    date: date,
+    riskFactor,
+  })
 
-  await newLog.save();
-  user.logs.push(newLog._id);
-  await user?.save();
+  await newLog.save()
+  user.logs.push(newLog._id)
+  await user?.save()
 
   return res
     .status(200)
@@ -73,8 +87,7 @@ const createLog = asyncHandler(async (req, res) => {
         { log: newLog },
         "Log created successfully and SMS sent."
       )
-    );
-});
+    )
+})
 
-
-module.exports = { createLog  , showLogs}
+module.exports = { createLog, showLogs, sendAlert }
