@@ -82,7 +82,7 @@ def upload():
 
             # If eyes are closed for more than the threshold duration
             # if time.time() - start_time >= CLOSED_EYE_DURATION_THRESH:
-            if blink_counter >= 10:
+            if blink_counter >= 20:
                 alarm_on = True
                 return jsonify({"alert": "Eyes Closed!",
                                 "blinks": blink_counter,
@@ -94,7 +94,7 @@ def upload():
         # Yawning detection
         if mar > MOUTH_AR_THRESH:
             yawn_counter += 1
-            if yawn_counter >= 3:  # Threshold for yawning alert
+            if yawn_counter >= 4:  # Threshold for yawning alert
                 return jsonify({"alert": "Yawning detected!",
                                 "blinks": yawn_counter,
                                 })

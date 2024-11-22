@@ -8,8 +8,8 @@ function WebcamFeed() {
   const wasPlaying = useRef(false)
   const [isPlaying, setIsPlaying] = useState(false)
   const [blinkCounter, setBlinkCounter] = useState(0)
-  const [currTime, setCurrTime] = useState(null)
-  const [currStatus, setCurrStatus] = useState("")
+  const currTime = useRef(null)
+  const currStatus = useRef("")
 
 
   useEffect(() => {
@@ -47,9 +47,31 @@ function WebcamFeed() {
     if (canvas && video) {
       const context = canvas.getContext("2d")
       context.drawImage(video, 0, 0, canvas.width, canvas.height)
-      sendFrame(canvas.toDataURL("image/png")) // Send frame as base64
+      sendFrame(canvas.toDataURL("image/png", 0.5)) // Send frame as base64
     }
   }
+  
+  const sendSmsAlert = async () => {
+    try {
+      console.log("hello")
+      const response = await fetch("http://localhost:3000/api/v1/log/smsAlert", {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json"
+        },
+        credentials: 'include',
+      });
+  
+      if (!response.ok) {
+        throw new Error("Error sending SMS alert");
+      }
+  
+      const result = await response.json();
+      console.log(result)
+    } catch (error) {
+      console.error("Error sending SMS alert request:", error);
+    }
+  };
 
   const sendFrame = async (imageData) => {
     try {
@@ -71,9 +93,9 @@ function WebcamFeed() {
         if (result.alert === "All good!") {
           console.log("all good");
           if(wasPlaying.current){            
-            createLog(currTime, currStatus)
-            setCurrStatus("")
-            setCurrTime(null)
+            createLog(currTime.current, currStatus.current)
+            currStatus.current = ""
+            currTime.current = null
           }
           if (isPlaying) {
             setIsPlaying(false)
@@ -83,8 +105,8 @@ function WebcamFeed() {
         } else {
           if (!isPlaying) {
             setIsPlaying(true);
-            setCurrTime(Date.now());
-            setCurrStatus(result.alert);
+            currTime.current = Date.now();
+            currStatus.current = result.alert
             console.log("Alarm Started");
             alertSoundRef.current.play();
             wasPlaying.current = true
@@ -92,7 +114,7 @@ function WebcamFeed() {
             setBlinkCounter(result.blinks);
             console.log(result.blinks);
             if (result.blinks == 50) {
-              console.log("alert");
+              console.log("sms alert function called");
               sendSmsAlert()
             }
         }
@@ -103,35 +125,10 @@ function WebcamFeed() {
       console.error("Fetch error:", error)
     }
   }
-
-  const sendSmsAlert = () => {
-    fetch("http://localhost:5001/api/v1/log/smsAlert", {
-      method: "POST",
-      headers: { 
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        key: 'value',
-      }),
-      credentials: 'include',
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json()
-        } else {
-          throw new Error("Error sending SMS alert")
-        }
-      })
-      .then((result) => {
-        console.log("SMS alert sent:", result)
-      })
-      .catch((error) => {
-        console.error("Error sending SMS alert request:", error)
-      })
-  }
+  
   const createLog = (time, status) => {
     const logData = {
-      time: time,
+      time: new Date(time).toISOString(),
       type: status,
       date: new Date(time).toISOString().split("T")[0],
       riskFactor: "low",
@@ -139,7 +136,7 @@ function WebcamFeed() {
 
     console.log("create log ", logData);
     
-    fetch('http://localhost:5001/api/v1/log/createLog', {
+    fetch('http://localhost:3000/api/v1/log/createLog', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

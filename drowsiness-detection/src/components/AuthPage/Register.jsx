@@ -33,7 +33,7 @@ const Register = () => {
     setLoading(true)
     try {
       const response = await fetch(
-        "http://localhost:5001/api/v1/user/register",
+        "http://localhost:3000/api/v1/user/register",
         {
           method: "POST",
           headers: {

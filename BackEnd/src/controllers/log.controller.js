@@ -3,21 +3,22 @@ const { ApiResponse } = require("../utils/ApiResponse")
 const Log = require("../models/log.model")
 const User = require("../models/user.model")
 const { asyncHandler } = require("../utils/asyncHandler")
-// const Twilio = require("twilio")
+const Twilio = require("twilio")
 
-// const client = Twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH_TOKEN)
+const client = Twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH_TOKEN)
 
 const sendAlert = asyncHandler(async (req, res) => {
   const user = req.user
-  const { blinkCounter } = req.body
-  const time = (blinkCounter * 100) / 1000
   if (!user) throw new ApiError(401, "Unauthorized Access")
 
-  // await client.messages.create({
-  //   body: `This is an automated message to inform you that ${req.username} has been detected as sleeping since ${time} seconds while driving. Immediate action is advised to ensure their safety. Please reach out to ${req.username} immediately to confirm their well-being or assist if necessary. Stay safe!`,
-  //   from: process.env.TWILIO_PHONE_NUMBER,
-  //   to: "+919289847629",
-  // })
+  console.log("smsalert ", user);
+  
+
+  await client.messages.create({
+    body: `This is an automated message to inform you that ${user.username} has been detected as sleeping while driving. Immediate action is advised to ensure their safety. Please reach out to ${user.username} immediately to confirm their well-being or assist if necessary. Stay safe!`,
+    from: process.env.TWILIO_PHONE_NUMBER,
+    to: "+919289847629",
+  })
 
   res.status(200).json(new ApiResponse(200, {}, "SMS Alert Sent Successfully"))
 })
@@ -25,6 +26,7 @@ const showLogs = asyncHandler(async (req, res) => {
   const user = req.user
 
   if (!user) throw new ApiError(401, "Unauthorized Access")
+  await user.populate("logs")
 
   const allLogs = user.logs
 
@@ -60,7 +62,7 @@ const createLog = asyncHandler(async (req, res) => {
   })
 
   let riskFactor = "low"
-  if (recentLogs.length >= 4) {
+  if (recentLogs.length && recentLogs.length % 9 == 0) {
     await client.messages.create({
       body: `This is an automated message to inform you that ${req.username} has been ignored multiple alerts as sleeping while driving. Immediate action is advised to ensure their safety. Please reach out to ${req.username} immediately to confirm their well-being or assist if necessary. Stay safe!`,
       from: process.env.TWILIO_PHONE_NUMBER,
@@ -85,7 +87,7 @@ const createLog = asyncHandler(async (req, res) => {
       new ApiResponse(
         200,
         { log: newLog },
-        "Log created successfully and SMS sent."
+        "Log created successfully"
       )
     )
 })
