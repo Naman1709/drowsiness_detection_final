@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
+import styles from "../styles/DetectionPage/WebcamFeed.module.css"
 
 function WebcamFeed() {
   const videoRef = useRef(null)
@@ -150,7 +151,7 @@ function WebcamFeed() {
   }
 
   return (
-    <div className="webcam-feed">
+    <div className={styles.webcamfeed}>
       <video
         ref={videoRef}
         autoPlay
@@ -163,7 +164,7 @@ function WebcamFeed() {
         width="640"
         height="480"
       />
-      <p>Webcam feed will display here.</p>
+      <p>Webcam feed will display here</p>
     </div>
   )
 }

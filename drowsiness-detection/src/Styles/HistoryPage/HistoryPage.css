@@ -94,3 +94,19 @@ th,
 td {
   font-size: 16px;
 }
+
+#high {
+  font-weight: bold;
+}
+
+#high:hover {
+  background-color: red;
+}
+
+#high:hover td {
+  color: white;
+}
+
+#high td {
+  color: red
+}

@@ -4,7 +4,7 @@ import styles from "../../Styles/HomePage/Hero.module.css";
 import { Link } from "react-router-dom";
 
 const Hero = () => (
-  <div>
+  <div className={styles.mainbody}>
     {/* Hero Section */}
     <section className={styles.hero}>
       <div className={styles.mainimg}>
@@ -33,29 +33,41 @@ const Hero = () => (
     {/* Features Section */}
     <section className={styles.features}>
       <h2>Advanced Features for Comprehensive Safety</h2>
-      <div className={styles.featureList}>
-        <div className={styles.feature}>
-          <h3>Real-time Monitoring</h3>
-          <p>
-            Continuously tracks driver alertness to prevent accidents caused by
-            drowsiness.
-          </p>
+      <div className={styles.featureContainer}>
+        {/* Features List on the Left */}
+        <div className={styles.featureList}>
+          <div className={styles.feature}>
+            <h3>Real-time Monitoring</h3>
+            <p>
+              Continuously tracks driver alertness to prevent accidents caused
+              by drowsiness.
+            </p>
+          </div>
+          <div className={styles.feature}>
+            <h3>Instant Alerts</h3>
+            <p>
+              Immediate notifications to warn drivers when drowsiness is
+              detected.
+            </p>
+          </div>
+          <div className={styles.feature}>
+            <h3>Data Insights</h3>
+            <p>
+              Access insights on driving habits to improve safety on future
+              trips.
+            </p>
+          </div>
         </div>
-        <div className={styles.feature}>
-          <h3>Instant Alerts</h3>
-          <p>
-            Immediate notifications to warn drivers when drowsiness is detected.
-          </p>
-        </div>
-        <div className={styles.feature}>
-          <h3>Data Insights</h3>
-          <p>
-            Access insights on driving habits to improve safety on future trips.
-          </p>
+
+        {/* Image on the Right */}
+        <div className={styles.featureImage}>
+          <img
+            src="src/assets/detection.jpeg" // replace with your actual image URL
+            alt="Driver Drowsiness Detection"
+          />
         </div>
       </div>
     </section>
-
     {/* How It Works Section */}
     <section className={styles.howItWorks}>
       <h2>How It Works</h2>
@@ -82,27 +94,65 @@ const Hero = () => (
       </div>
     </section>
 
-    {/* Benefits Section */}
-    <section className={styles.benefits}>
-      <h2>Who Can Benefit From Our Technology?</h2>
-      <div className={styles.benefitList}>
-        <div className={styles.benefit}>
-          <h3>Professional Drivers</h3>
-          <p>
-            Ideal for truck drivers and commercial fleets aiming to reduce
-            accidents.
-          </p>
+    {/* Image Section */}
+    <section className={styles.accidentsSection}>
+      <h2 className={styles.title}>
+        Many Accidents Happen Because of Driver Drowsiness
+      </h2>
+      <div className={styles.imageGrid}>
+        <div className={styles.imageItem1}>
+          <img
+            src="src/assets/accident1.jpg" // Replace with actual image URL
+            alt="Accident Prevention"
+          />
         </div>
-        <div className={styles.benefit}>
-          <h3>Families</h3>
-          <p>Protect your loved ones by ensuring safe and attentive driving.</p>
+        <div className={styles.imageItem2}>
+          <img
+            src="src/assets/accident2.jpg" // Replace with actual image URL
+            alt="Drowsy Driving"
+          />
         </div>
-        <div className={styles.benefit}>
-          <h3>Fleet Managers</h3>
-          <p>Monitor and manage driver alertness across your entire fleet.</p>
+        <div className={styles.imageItem3}>
+          <img
+            src="src/assets/accident3.jpg" // Replace with actual image URL
+            alt="Driver Alertness"
+          />
         </div>
       </div>
     </section>
+
+    {/* Benefits Section */}
+    <section className={styles.benefits}>
+      <div className={styles.benefitContent}>
+        {/* Image on the left */}
+        <div className={styles.imageContainer}>
+          <img
+            src="src/assets/benefit_img.jpg" // Replace with actual image URL
+            alt="Driver Drowsiness Technology"
+          />
+        </div>
+
+        {/* Benefits List with bullet points on the right */}
+        <div className={styles.benefitList}>
+          <h2>Who Can Benefit From Our Technology?</h2>
+          <ul>
+            <li>
+              <strong>Professional Drivers:</strong> Ideal for truck drivers and
+              commercial fleets aiming to reduce accidents.
+            </li>
+            <li>
+              <strong>Families:</strong> Protect your loved ones by ensuring
+              safe and attentive driving.
+            </li>
+            <li>
+              <strong>Fleet Managers:</strong> Monitor and manage driver
+              alertness across your entire fleet.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <hr />
   </div>
 );
 

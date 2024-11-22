@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc"
 import { FaFacebook } from "react-icons/fa"
 import { ToastContainer, toast } from "react-toastify" // Import Toastify
 import "react-toastify/dist/ReactToastify.css" // Import Toastify styles
+import { Link, useNavigate } from "react-router-dom"
 
 const LoginForm = () => {
   const [credentials, setCredentials] = useState({
@@ -12,6 +13,7 @@ const LoginForm = () => {
     password: "",
   })
   const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -46,6 +48,7 @@ const LoginForm = () => {
         toast.error(data.message || "Login failed.")
       } else {
         toast.success("Login successful!")
+        navigate("/")
       }
 
       // Handle successful login (e.g., redirect, store token, etc.)
@@ -63,17 +66,6 @@ const LoginForm = () => {
           <h2>Welcome back</h2>
           <p>Please enter your details to sign in.</p>
         </div>
-        <div className={styles.socialButtons}>
-          <button className={styles.googleBtn}>
-            <FcGoogle className={styles.socialIcon} />
-            Google
-          </button>
-          <button className={styles.facebookBtn}>
-            <FaFacebook className={styles.socialIcon} />
-            Facebook
-          </button>
-        </div>
-        <p className={styles.orText}>or</p>
         <form className={styles.form} onSubmit={handleSubmit}>
           {loading && <p>Loading...</p>}
           <input
@@ -114,7 +106,7 @@ const LoginForm = () => {
         </form>
         <div className={styles.footer}>
           <p>
-            Don’t have an account? <a href="#">Create account</a>
+            Don’t have an account? <Link to="/register">Create account</Link>
           </p>
         </div>
       </div>

@@ -22,7 +22,6 @@ const HistoryPage = () => {
       }
 
       const data = await response.json()
-      console.log("Full response data:", data);
 
       console.log(data);
       setHistoryData(data?.data?.logs || [])
@@ -52,9 +51,7 @@ const HistoryPage = () => {
           </thead>
           <tbody>
             {historyData.map((log, index) => {
-              console.log("Hello ", log)
-              
-              return (<tr key={index}>
+              return (<tr id = {`${log.riskFactor === "high" ? "high" : ""}`} key={index}>
               <td>{log.date}</td>
               <td>{log.type}</td>
               <td>{log.time}</td>

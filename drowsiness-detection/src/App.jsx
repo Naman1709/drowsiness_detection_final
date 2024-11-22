@@ -5,7 +5,7 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom"
-import Hero from "./Components/HomePage/Hero"
+import Hero from "./components/HomePage/Hero"
 import DetectionPage from "./Components/DetectionPage"
 import HistoryPage from "./Components/HistoryPage"
 import UserProfile from "./Components/UserProfile"

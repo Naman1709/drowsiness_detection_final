@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import styles from "../../Styles/AuthPage/Register.module.css"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import { Link, Navigate, useNavigate } from "react-router-dom"
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ const Register = () => {
   })
 
   const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -55,6 +57,7 @@ const Register = () => {
         toast.error(data.message || "Registration failed.")
       } else {
         toast.success("Registration successful!")
+        navigate("/login")
       }
       // Handle successful registration (e.g., redirect to login page or show success message)
     } catch (error) {
@@ -116,7 +119,7 @@ const Register = () => {
         </form>
         <div className={styles.footer}>
           <p>
-            Already have an account? <a href="#">Sign in</a>
+            Already have an account? <Link to="/login">Sign in</Link>
           </p>
         </div>
       </div>

@@ -1,36 +1,87 @@
+/* General Styles for Footer */
 .footer {
-  background-color: #012641;
-  padding: 20px 0;
+  background-color: #223634;
+  color: #f1f1f1;
+  padding: 40px 0;
   text-align: center;
-  color: white;
-  border-top: 1px solid #e0e0e0;
+  font-family: "Roboto", sans-serif;
 }
 
 .footer .container {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 0 20px;
 }
 
-.footer p {
-  margin: 0;
-  font-size: 14px;
+.footer .logo h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #ffffff;
 }
 
 .footer .links {
-  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .footer .links a {
-  color: #bbb;
-  margin: 0 10px;
-  font-size: 14px;
+  color: #f1f1f1;
   text-decoration: none;
+  margin: 0 15px;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
 }
 
 .footer .links a:hover {
-  color: #999;
+  color: #4c91e5;
+}
+
+.footer .socials {
+  margin-bottom: 20px;
+}
+
+.footer .socialIcon {
+  color: #f1f1f1;
+  font-size: 1.3rem;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.footer .socialIcon:hover {
+  color: #4c91e5;
+}
+
+.footer .copy {
+  font-size: 0.9rem;
+  color: #aaaaaa;
+  margin-top: 20px;
+}
+
+.footer .copy a {
+  color: #4c91e5;
+  text-decoration: none;
+}
+
+.footer .copy a:hover {
   text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer .container {
+    padding: 0 15px;
+  }
+
+  .footer .logo h2 {
+    font-size: 1.4rem;
+  }
+
+  .footer .links a {
+    display: inline-block;
+    margin: 10px 0;
+  }
+
+  .footer .socials {
+    margin: 10px 0;
+  }
 }

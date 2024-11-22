@@ -1,29 +1,59 @@
 // src/components/UserProfile.jsx
-import React from "react";
+import React, { useState } from "react";
 import "../Styles/UserProfilePage/UserProfile.css";
 
 function UserProfile() {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Profile saved successfully!");
+    // Add logic for saving the changes here
+  };
+
   return (
     <div className="profile">
-      <h2>User Profile</h2>
-      <p>Manage your profile settings here.</p>
-      {/* Add more form elements as needed */}
-      <div className="image">
-        <img src="src/assets/id.png" alt="" />
+      <div className="profile-card">
+        <h2>User Profile</h2>
+        <p className="description">Manage your profile settings here.</p>
+
+        {/* Profile image */}
+        <div className="profile-image">
+          <img src="src/assets/id.jpg" alt="Profile" />
+        </div>
+
+        {/* Form to update user info */}
+        <form className="profile-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="username">Username:</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <button type="submit" className="save-button">
+              Save Changes
+            </button>
+          </div>
+        </form>
       </div>
-      <form className="container">
-        <div className="labels">
-          <label htmlFor="username">Username:</label>
-          <input type="text" id="username" name="username" />
-        </div>
-        <div className="labels">
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" name="email" />
-        </div>
-        <div className="labels">
-          <button type="submit">Save Changes</button>
-        </div>
-      </form>
     </div>
   );
 }

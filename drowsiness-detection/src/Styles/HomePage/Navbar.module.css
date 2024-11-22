@@ -16,8 +16,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 15%;
   float: left;
+}
+
+.imageCont img {
+  width: 180px;
 }
 
 .list {
@@ -52,6 +55,7 @@
 
 .navList li:hover {
   transform: scale(1.04);
+  text-decoration: none;
 }
 
 .navbar .buttons {
@@ -83,7 +87,6 @@
 .navbar .buttons li:hover {
   transform: scale(1.1);
 }
-
 
 .signup {
   background-color: #223634;
