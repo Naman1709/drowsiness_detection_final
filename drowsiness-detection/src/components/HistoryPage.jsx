@@ -7,15 +7,24 @@ const HistoryPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/v1/log/showLog")
+        const response = await fetch("http://localhost:5001/api/v1/log/showLog", {
+          method: "POST",
+          headers: { 
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            key: 'value',
+          }),
+          credentials: 'include',
+        })
 
         if (!response.ok) {
-          return
+          throw new Error("Failed to fetch logs");
         }
 
         const data = await response.json()
 
-        setHistoryData(data?.log)
+        setHistoryData(data.log)
       } catch (error) {
         console.error("Error fetching data:", error)
       }

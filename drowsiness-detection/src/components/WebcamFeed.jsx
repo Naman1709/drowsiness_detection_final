@@ -92,8 +92,8 @@ function WebcamFeed() {
             setBlinkCounter(result.blinks);
             console.log(result.blinks);
             if (result.blinks == 50) {
-              sendSmsAlert()
               console.log("alert");
+              sendSmsAlert()
             }
         }
       } else {
@@ -107,7 +107,13 @@ function WebcamFeed() {
   const sendSmsAlert = () => {
     fetch("http://localhost:5001/api/v1/log/smsAlert", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { 
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        key: 'value',
+      }),
+      credentials: 'include',
     })
       .then((response) => {
         if (response.ok) {
@@ -131,18 +137,19 @@ function WebcamFeed() {
       riskFactor: "low",
     }
 
-    console.log("create log");
+    console.log("create log ", logData);
     
-    fetch("http://localhost:5001/api/v1/log/createLog", {
-      method: "POST",
+    fetch('http://localhost:5001/api/v1/log/createLog', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(logData),
+      credentials: 'include', // This ensures cookies are sent with the request
     })
-      .then((res) => res.json())
-      .then((data) => console.log("Log created:", data))
-      .catch((err) => console.error("Error creating log:", err))
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error('Error:', error));
   }
 
   return (
