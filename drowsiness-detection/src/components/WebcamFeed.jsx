@@ -5,10 +5,12 @@ function WebcamFeed() {
   const canvasRef = useRef(null)
   const intervalRef = useRef(null)
   const alertSoundRef = useRef(null)
+  const wasPlaying = useRef(false)
   const [isPlaying, setIsPlaying] = useState(false)
   const [blinkCounter, setBlinkCounter] = useState(0)
   const [currTime, setCurrTime] = useState(null)
   const [currStatus, setCurrStatus] = useState("")
+
 
   useEffect(() => {
     const startWebcam = async () => {
@@ -45,7 +47,7 @@ function WebcamFeed() {
     if (canvas && video) {
       const context = canvas.getContext("2d")
       context.drawImage(video, 0, 0, canvas.width, canvas.height)
-      sendFrame(canvas.toDataURL("image/png", 0.5)) // Send frame as base64
+      sendFrame(canvas.toDataURL("image/png")) // Send frame as base64
     }
   }
 
@@ -62,34 +64,37 @@ function WebcamFeed() {
       if (response.ok) {
         const result = await response.json()
 
-        if (result?.alert === "AllGood") {
-          if (isPlaying) {
-            setIsPlaying(false)
-            alertSoundRef.current?.pause()
+        if (!alertSoundRef.current) {
+          alertSoundRef.current = new Audio('/public/wake.wav');
+        }
+
+        if (result.alert === "All good!") {
+          console.log("all good");
+          if(wasPlaying.current){            
             createLog(currTime, currStatus)
             setCurrStatus("")
             setCurrTime(null)
           }
+          if (isPlaying) {
+            setIsPlaying(false)
+            alertSoundRef.current.pause()
+          }
+          wasPlaying.current = false
         } else {
           if (!isPlaying) {
-            setIsPlaying(true)
-            setCurrTime(Date.now())
-            setCurrStatus(result.alert)
-            alertSoundRef.current = new Audio("/public/wake.wav")
-            alertSoundRef.current.play()
-            console.log("Alarm Started")
-
-            alertSoundRef.current.onended = () => {
-              if (isPlaying) {
-                alertSoundRef.current.play()
-                console.log("Alarm Restarted")
-              }
-            }
-          } else {
-            if (result.blinkCounter == 50) {
-              sendSmsAlert()
-            }
+            setIsPlaying(true);
+            setCurrTime(Date.now());
+            setCurrStatus(result.alert);
+            console.log("Alarm Started");
+            alertSoundRef.current.play();
+            wasPlaying.current = true
           }
+            setBlinkCounter(result.blinks);
+            console.log(result.blinks);
+            if (result.blinks == 50) {
+              sendSmsAlert()
+              console.log("alert");
+            }
         }
       } else {
         console.error("Error sending frame:", response.statusText)
@@ -100,7 +105,7 @@ function WebcamFeed() {
   }
 
   const sendSmsAlert = () => {
-    fetch("http://localhost:5000/api/v1/log/smsAlert", {
+    fetch("http://localhost:5001/api/v1/log/smsAlert", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
     })
@@ -123,9 +128,12 @@ function WebcamFeed() {
       time: time,
       type: status,
       date: new Date(time).toISOString().split("T")[0],
+      riskFactor: "low",
     }
 
-    fetch("http://localhost:5000/api/v1/log/createLog", {
+    console.log("create log");
+    
+    fetch("http://localhost:5001/api/v1/log/createLog", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
