@@ -7,23 +7,22 @@ import numpy as np
 import base64
 import io
 from PIL import Image
-from flask_cors import CORS  # Import CORS
-import time  # Import for handling duration
+from flask_cors import CORS  
+import time  
 import os
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app)  
 
 cwd = os.path.dirname(__file__)
 
-# Load the face detector and shape predictor
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(cwd+'/shape_predictor_68_face_landmarks.dat')
 
-# Constants
+
 EYE_AR_THRESH = 0.25
 MOUTH_AR_THRESH = 0.7
-CLOSED_EYE_DURATION_THRESH = 3  # Time (in seconds) to trigger alert after prolonged eye closure
+CLOSED_EYE_DURATION_THRESH = 3  
 
 blink_counter = 0
 yawn_counter = 0
@@ -52,8 +51,7 @@ def upload():
     data = request.json
     image_data = data['image']
 
-    # Convert base64 string to image
-    image_data = image_data.split(',')[1]  # Remove the metadata
+    image_data = image_data.split(',')[1]  
     image = Image.open(io.BytesIO(base64.b64decode(image_data)))
     frame = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
 
@@ -74,33 +72,29 @@ def upload():
         mouth = shape[face_utils.FACIAL_LANDMARKS_IDXS["mouth"][0]:face_utils.FACIAL_LANDMARKS_IDXS["mouth"][1]]
         mar = mouth_aspect_ratio(mouth)
 
-        # Eye closure detection with duration
         if ear < EYE_AR_THRESH:
-            if blink_counter == 0:  # Start timer when eyes first close
+            if blink_counter == 0:  
                 start_time = time.time()
             blink_counter += 1
 
-            # If eyes are closed for more than the threshold duration
-            # if time.time() - start_time >= CLOSED_EYE_DURATION_THRESH:
             if blink_counter >= 20:
                 alarm_on = True
                 return jsonify({"alert": "Eyes Closed!",
                                 "blinks": blink_counter,
                                 })
         else:
-            blink_counter = 0  # Reset blink counter when eyes open
+            blink_counter = 0 
             alarm_on = False
 
-        # Yawning detection
+        
         if mar > MOUTH_AR_THRESH:
             yawn_counter += 1
-            if yawn_counter >= 4:  # Threshold for yawning alert
+            if yawn_counter >= 4:  
                 return jsonify({"alert": "Yawning detected!",
                                 "blinks": yawn_counter,
                                 })
 
     return jsonify({"alert": "All good!"})
-    # return ""
 
 if __name__ == '__main__':
     app.run(debug=True)

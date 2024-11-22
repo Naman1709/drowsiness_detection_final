@@ -70,7 +70,7 @@ button {
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  width: 100%; /* Full width of the container */
+  width: 100%;
   height: auto;
 }
 
@@ -82,14 +82,14 @@ button {
 }
 
 video {
-  border-radius: 10px; /* Round the corners of the video */
-  width: 100%; /* Full width of the container */
-  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
 }
 
 h2 {
   color: #333;
-  text-align: center; /* Center the text */
+  text-align: center;
   font-size: 30px;
 }
 
@@ -104,7 +104,7 @@ p {
 
 .alerts {
   margin-top: 20px;
-  color: red; /* Alert messages in red */
+  color: red;
 }
 
 li {

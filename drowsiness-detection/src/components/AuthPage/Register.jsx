@@ -1,8 +1,8 @@
-import React, { useState } from "react"
-import styles from "../../Styles/AuthPage/Register.module.css"
-import { ToastContainer, toast } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
-import { Link, Navigate, useNavigate } from "react-router-dom"
+import React, { useState } from "react";
+import styles from "../../Styles/AuthPage/Register.module.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -10,29 +10,29 @@ const Register = () => {
     email: "",
     password: "",
     phoneNo: "",
-  })
+  });
 
-  const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
-    }))
-  }
+    }));
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    const { name, email, password,  phoneNo } = formData
+    e.preventDefault();
+    const { name, email, password, phoneNo } = formData;
 
     if (!name || !email || !password || !phoneNo) {
-      toast.error("All fields are required.")
-      return
+      toast.error("All fields are required.");
+      return;
     }
 
-    setLoading(true)
+    setLoading(true);
     try {
       const response = await fetch(
         "http://localhost:3000/api/v1/user/register",
@@ -49,23 +49,22 @@ const Register = () => {
             phoneNumber: phoneNo,
           }),
         }
-      )
+      );
 
-      const data = await response.json()
+      const data = await response.json();
 
       if (!response.ok) {
-        toast.error(data.message || "Registration failed.")
+        toast.error(data.message || "Registration failed.");
       } else {
-        toast.success("Registration successful!")
-        navigate("/login")
+        toast.success("Registration successful!");
+        navigate("/login");
       }
-      // Handle successful registration (e.g., redirect to login page or show success message)
     } catch (error) {
-      toast.error(error.message)
+      toast.error(error.message);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <>
@@ -126,7 +125,7 @@ const Register = () => {
       {/* ToastContainer positioned at top center */}
       <ToastContainer position="top-center" autoClose={1000} />
     </>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

@@ -1,4 +1,3 @@
-// src/components/DrowsinessIndicator.jsx
 import React from "react";
 
 function DrowsinessIndicator({ alert }) {

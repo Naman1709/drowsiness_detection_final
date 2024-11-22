@@ -4,7 +4,7 @@ html {
   padding: 0;
   height: 100%;
   overflow: hidden;
-  font-family: "Arial", sans-serif; /* Cleaner font for modern look */
+  font-family: "Arial", sans-serif;
 }
 
 .history-page {
@@ -13,62 +13,62 @@ html {
   height: 100vh;
   padding: 20px;
   overflow: hidden;
-  background-color: #f7f1e3; /* Softer background color */
+  background-color: #f7f1e3;
   margin-top: -50px;
 }
 
 .history-page h2 {
   text-align: center;
   color: #012641;
-  font-size: 32px; /* Increase the size */
-  font-weight: bold; /* Make the title bolder */
+  font-size: 32px;
+  font-weight: bold;
   margin-bottom: 30px;
   margin-top: 80px;
-  text-transform: uppercase; /* Capitalize title */
-  letter-spacing: 2px; /* Add some spacing for better styling */
+  text-transform: uppercase;
+  letter-spacing: 2px;
   flex-shrink: 0;
-  border-bottom: 2px solid #012641; /* Underline title for emphasis */
-  padding-bottom: 10px; /* Add some space below title */
+  border-bottom: 2px solid #012641;
+  padding-bottom: 10px;
 }
 
 .table-container {
   flex-grow: 1;
   overflow-y: auto;
   overflow-x: auto;
-  padding-right: 10px; /* Add padding for smoother scrolling */
+  padding-right: 10px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* Add a soft shadow */
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 thead {
-  background-color: #012641; /* Stronger orange for header */
+  background-color: #012641;
   position: sticky;
   top: 0;
   z-index: 999;
 }
 
 thead th {
-  color: white; /* Make the header text white for contrast */
+  color: white;
   font-weight: bold;
-  font-size: 18px; /* Larger font for headings */
-  padding: 16px; /* Add more padding for spacious look */
+  font-size: 18px;
+  padding: 16px;
   text-align: left;
-  text-transform: uppercase; /* Capitalize headings */
+  text-transform: uppercase;
   letter-spacing: 4px;
-  border-bottom: 3px solid #012641; /* Border below headers */
+  border-bottom: 3px solid #012641;
 }
 
 tbody tr:nth-child(even) {
-  background-color: white; /* Softer color for even rows */
+  background-color: white;
 }
 
 tbody tr:nth-child(odd) {
-  background-color: #eef5ff; /* Light yellow for odd rows */
+  background-color: #eef5ff;
 }
 
 tbody td {
@@ -79,14 +79,14 @@ tbody td {
 }
 
 tbody tr:hover {
-  background-color: #60b3d1; /* Slightly darker color on hover */
+  background-color: #60b3d1;
   transition: background-color 0.3s ease;
 }
 
 table,
 th,
 td {
-  border: 1px solid #ddd; /* Softer border for the table */
+  border: 1px solid #ddd;
   text-align: left;
 }
 
@@ -108,5 +108,5 @@ td {
 }
 
 #high td {
-  color: red
+  color: red;
 }

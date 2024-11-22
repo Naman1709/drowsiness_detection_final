@@ -1,17 +1,16 @@
-import React, { useEffect, useRef, useState } from "react"
-import styles from "../styles/DetectionPage/WebcamFeed.module.css"
+import React, { useEffect, useRef, useState } from "react";
+import styles from "../styles/DetectionPage/WebcamFeed.module.css";
 
 function WebcamFeed() {
-  const videoRef = useRef(null)
-  const canvasRef = useRef(null)
-  const intervalRef = useRef(null)
-  const alertSoundRef = useRef(null)
-  const wasPlaying = useRef(false)
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [blinkCounter, setBlinkCounter] = useState(0)
-  const currTime = useRef(null)
-  const currStatus = useRef("")
-
+  const videoRef = useRef(null);
+  const canvasRef = useRef(null);
+  const intervalRef = useRef(null);
+  const alertSoundRef = useRef(null);
+  const wasPlaying = useRef(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [blinkCounter, setBlinkCounter] = useState(0);
+  const currTime = useRef(null);
+  const currStatus = useRef("");
 
   useEffect(() => {
     const startWebcam = async () => {
@@ -19,56 +18,59 @@ function WebcamFeed() {
         const stream = await navigator.mediaDevices.getUserMedia({
           video: true,
           audio: false,
-        })
-        videoRef.current.srcObject = stream
+        });
+        videoRef.current.srcObject = stream;
       } catch (err) {
-        console.error("Error accessing webcam: ", err)
+        console.error("Error accessing webcam: ", err);
       }
-    }
+    };
 
-    startWebcam()
+    startWebcam();
 
     intervalRef.current = setInterval(() => {
-      captureFrame()
-    }, 100) // Capture every 0.1 second
+      captureFrame();
+    }, 100);
 
     return () => {
-      clearInterval(intervalRef.current)
+      clearInterval(intervalRef.current);
       if (videoRef?.current?.srcObject) {
-        const tracks = videoRef.current.srcObject.getTracks()
-        tracks.forEach((track) => track.stop())
+        const tracks = videoRef.current.srcObject.getTracks();
+        tracks.forEach((track) => track.stop());
       }
-    }
-  }, [])
+    };
+  }, []);
 
   const captureFrame = () => {
-    const canvas = canvasRef.current
-    const video = videoRef.current
+    const canvas = canvasRef.current;
+    const video = videoRef.current;
 
     if (canvas && video) {
-      const context = canvas.getContext("2d")
-      context.drawImage(video, 0, 0, canvas.width, canvas.height)
-      sendFrame(canvas.toDataURL("image/png", 0.5)) // Send frame as base64
+      const context = canvas.getContext("2d");
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      sendFrame(canvas.toDataURL("image/png", 0.5)); // Send frame as base64
     }
-  }
-  
+  };
+
   const sendSmsAlert = async () => {
     try {
-      console.log("hello")
-      const response = await fetch("http://localhost:3000/api/v1/log/smsAlert", {
-        method: "POST",
-        headers: { 
-          "Content-Type": "application/json"
-        },
-        credentials: 'include',
-      });
-  
+      console.log("hello");
+      const response = await fetch(
+        "http://localhost:3000/api/v1/log/smsAlert",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        }
+      );
+
       if (!response.ok) {
         throw new Error("Error sending SMS alert");
       }
-  
+
       const result = await response.json();
-      console.log(result)
+      console.log(result);
     } catch (error) {
       console.error("Error sending SMS alert request:", error);
     }
@@ -82,73 +84,73 @@ function WebcamFeed() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ image: imageData }),
-      })
+      });
 
       if (response.ok) {
-        const result = await response.json()
+        const result = await response.json();
 
         if (!alertSoundRef.current) {
-          alertSoundRef.current = new Audio('/public/wake.wav');
+          alertSoundRef.current = new Audio("/public/wake.wav");
         }
 
         if (result.alert === "All good!") {
           console.log("all good");
-          if(wasPlaying.current){            
-            createLog(currTime.current, currStatus.current)
-            currStatus.current = ""
-            currTime.current = null
+          if (wasPlaying.current) {
+            createLog(currTime.current, currStatus.current);
+            currStatus.current = "";
+            currTime.current = null;
           }
           if (isPlaying) {
-            setIsPlaying(false)
-            alertSoundRef.current.pause()
+            setIsPlaying(false);
+            alertSoundRef.current.pause();
           }
-          wasPlaying.current = false
+          wasPlaying.current = false;
         } else {
           if (!isPlaying) {
             setIsPlaying(true);
             currTime.current = Date.now();
-            currStatus.current = result.alert
+            currStatus.current = result.alert;
             console.log("Alarm Started");
             alertSoundRef.current.play();
-            wasPlaying.current = true
+            wasPlaying.current = true;
           }
-            setBlinkCounter(result.blinks);
-            console.log(result.blinks);
-            if (result.blinks == 50) {
-              console.log("sms alert function called");
-              sendSmsAlert()
-            }
+          setBlinkCounter(result.blinks);
+          console.log(result.blinks);
+          if (result.blinks == 50) {
+            console.log("sms alert function called");
+            sendSmsAlert();
+          }
         }
       } else {
-        console.error("Error sending frame:", response.statusText)
+        console.error("Error sending frame:", response.statusText);
       }
     } catch (error) {
-      console.error("Fetch error:", error)
+      console.error("Fetch error:", error);
     }
-  }
-  
+  };
+
   const createLog = (time, status) => {
     const logData = {
       time: new Date(time).toISOString(),
       type: status,
       date: new Date(time).toISOString().split("T")[0],
       riskFactor: "low",
-    }
+    };
 
     console.log("create log ", logData);
-    
-    fetch('http://localhost:3000/api/v1/log/createLog', {
-      method: 'POST',
+
+    fetch("http://localhost:3000/api/v1/log/createLog", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(logData),
-      credentials: 'include', // This ensures cookies are sent with the request
+      credentials: "include",
     })
       .then((response) => response.json())
       .then((data) => console.log(data))
-      .catch((error) => console.error('Error:', error));
-  }
+      .catch((error) => console.error("Error:", error));
+  };
 
   return (
     <div className={styles.webcamfeed}>
@@ -166,7 +168,7 @@ function WebcamFeed() {
       />
       <p>Webcam feed will display here</p>
     </div>
-  )
+  );
 }
 
-export default WebcamFeed
+export default WebcamFeed;

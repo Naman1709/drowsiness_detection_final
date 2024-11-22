@@ -1,4 +1,3 @@
-// src/components/UserProfile.jsx
 import React, { useState } from "react";
 import "../Styles/UserProfilePage/UserProfile.css";
 
@@ -9,7 +8,6 @@ function UserProfile() {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Profile saved successfully!");
-    // Add logic for saving the changes here
   };
 
   return (

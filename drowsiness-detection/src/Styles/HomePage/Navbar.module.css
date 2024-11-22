@@ -7,7 +7,7 @@
   background-color: white;
   padding: 15px;
   display: flex;
-  width: 100vw; /* Full width */
+  width: 100vw;
   height: 80px;
   position: sticky;
 }
@@ -31,7 +31,6 @@
 }
 
 .navList {
-  /* border: 2px solid black; */
   list-style-type: none;
   margin-top: 7px;
   margin-left: 1%;

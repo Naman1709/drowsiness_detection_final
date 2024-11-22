@@ -1,38 +1,38 @@
-import React, { useState } from "react"
-import styles from "../../Styles/AuthPage/Login.module.css"
-import { FcGoogle } from "react-icons/fc"
-import { FaFacebook } from "react-icons/fa"
-import { ToastContainer, toast } from "react-toastify" // Import Toastify
-import "react-toastify/dist/ReactToastify.css" // Import Toastify styles
-import { Link, useNavigate } from "react-router-dom"
+import React, { useState } from "react";
+import styles from "../../Styles/AuthPage/Login.module.css";
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebook } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [credentials, setCredentials] = useState({
     username: "",
     email: "",
     password: "",
-  })
-  const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
+  });
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     setCredentials((prevState) => ({
       ...prevState,
       [name]: value,
-    }))
-  }
+    }));
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    const { username, email, password } = credentials
+    e.preventDefault();
+    const { username, email, password } = credentials;
 
     if (!username?.trim() || !email?.trim() || !password?.trim()) {
-      toast.error("Enter Valid Credentials")
-      return
+      toast.error("Enter Valid Credentials");
+      return;
     }
 
-    setLoading(true)
+    setLoading(true);
     try {
       const response = await fetch("http://localhost:3000/api/v1/user/login", {
         method: "POST",
@@ -41,23 +41,21 @@ const LoginForm = () => {
         },
         credentials: "include",
         body: JSON.stringify({ username, email, password }),
-      })
+      });
 
-      const data = await response.json()
+      const data = await response.json();
       if (!response.ok) {
-        toast.error(data.message || "Login failed.")
+        toast.error(data.message || "Login failed.");
       } else {
-        toast.success("Login successful!")
-        navigate("/")
+        toast.success("Login successful!");
+        navigate("/");
       }
-
-      // Handle successful login (e.g., redirect, store token, etc.)
     } catch (error) {
-      toast.error(error.message)
+      toast.error(error.message);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <>
@@ -112,7 +110,7 @@ const LoginForm = () => {
       </div>
       <ToastContainer position="top-center" autoClose={1000} />
     </>
-  )
-}
+  );
+};
 
-export default LoginForm
+export default LoginForm;

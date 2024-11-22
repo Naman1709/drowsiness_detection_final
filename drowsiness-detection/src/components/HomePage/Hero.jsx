@@ -1,4 +1,3 @@
-// src/Components/Hero.jsx
 import React from "react";
 import styles from "../../Styles/HomePage/Hero.module.css";
 import { Link } from "react-router-dom";
@@ -62,7 +61,7 @@ const Hero = () => (
         {/* Image on the Right */}
         <div className={styles.featureImage}>
           <img
-            src="src/assets/detection.jpeg" // replace with your actual image URL
+            src="src/assets/detection.jpeg"
             alt="Driver Drowsiness Detection"
           />
         </div>
@@ -101,22 +100,13 @@ const Hero = () => (
       </h2>
       <div className={styles.imageGrid}>
         <div className={styles.imageItem1}>
-          <img
-            src="src/assets/accident1.jpg" // Replace with actual image URL
-            alt="Accident Prevention"
-          />
+          <img src="src/assets/accident1.jpg" alt="Accident Prevention" />
         </div>
         <div className={styles.imageItem2}>
-          <img
-            src="src/assets/accident2.jpg" // Replace with actual image URL
-            alt="Drowsy Driving"
-          />
+          <img src="src/assets/accident2.jpg" alt="Drowsy Driving" />
         </div>
         <div className={styles.imageItem3}>
-          <img
-            src="src/assets/accident3.jpg" // Replace with actual image URL
-            alt="Driver Alertness"
-          />
+          <img src="src/assets/accident3.jpg" alt="Driver Alertness" />
         </div>
       </div>
     </section>
@@ -127,12 +117,12 @@ const Hero = () => (
         {/* Image on the left */}
         <div className={styles.imageContainer}>
           <img
-            src="src/assets/benefit_img.jpg" // Replace with actual image URL
+            src="src/assets/benefit_img.jpg"
             alt="Driver Drowsiness Technology"
           />
         </div>
 
-        {/* Benefits List with bullet points on the right */}
+        {/* Benefits List on the right */}
         <div className={styles.benefitList}>
           <h2>Who Can Benefit From Our Technology?</h2>
           <ul>
